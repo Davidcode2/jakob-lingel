@@ -25,13 +25,13 @@
   a:hover {
     color: var(--color-accent-weak);
   }
-  
+
   a.external-link {
     color: var(--color-tone-informative);
     text-decoration: none;
     transition: color 0.2s ease-in-out;
   }
-  
+
   a.external-link:hover {
     color: var(--color-tone-informative-muted);
   }
@@ -90,6 +90,10 @@
 
   /* border */
   --color-border: var(--color-surface-overlay);
+
+  ::selection {
+    background: var(--color-accent);
+  }
 }
 
 [data-theme="dark"] {
@@ -145,4 +149,8 @@
 
   /* border */
   --color-border: var(--color-surface-overlay);
+
+  ::selection {
+    background: var(--color-subtle-accent);
+  }
 }
