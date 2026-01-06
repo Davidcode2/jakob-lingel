@@ -1,0 +1,40 @@
+name: Build and Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+env:
+  IMAGE_NAME: ${{ github.repository }}
+  REGISTRY: ghcr.io
+
+jobs:
+  check-for-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      src: ${{ steps.filter.outputs.src }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for relevant changes
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            src:
+              - 'src/**'
+              - 'src/'
+
+  build-and-push:
+    permissions:
+      contents: read
+      packages: write
+    uses: ./.github/workflows/build-and-push.yml
+    needs: check-for-changes
+    if: needs.check-for-changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
+    with:
+      image_name: ghcr.io/${{ github.repository }}
+      dockerfile: dockerfile
