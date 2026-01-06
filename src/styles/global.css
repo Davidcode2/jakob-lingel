@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+[data-theme="light"] {
+  /* Background & foreground */
+  --color-background: hsl(0, 0%, 100%);
+  --color-foreground: hsl(228, 15%, 15%);
+
+  /* Surfaces */
+  --color-surface-base: hsl(0, 0%, 100%);
+  --color-surface-subtle: hsl(228, 20%, 97%);
+  --color-surface-raised: hsl(228, 20%, 95%);
+  --color-surface-overlay: hsl(228, 20%, 92%);
+
+  /* Accent (purple) */
+  --color-accent-subtle: hsl(270, 40%, 96%);
+  --color-accent-muted: hsl(270, 45%, 90%);
+  --color-accent: hsl(270, 55%, 55%);
+  --color-accent-emphasis: hsl(270, 65%, 45%);
+  --color-accent-strong: hsl(270, 75%, 40%);
+
+  /* Feedback */
+  --color-success: hsl(140, 45%, 45%);
+  --color-success-emphasis: hsl(140, 60%, 40%);
+
+  --color-alert: hsl(0, 65%, 50%);
+  --color-alert-emphasis: hsl(0, 75%, 45%);
+
+  /* Text */
+  --color-text-primary: hsl(228, 15%, 15%);
+  --color-text-secondary: hsl(228, 12%, 30%);
+  --color-text-muted: hsl(228, 10%, 45%);
+  --color-text-inverse: hsl(0, 0%, 100%);
+}
+
+[data-theme="dark"] {
+  /* Background & foreground */
+  --color-background: hsl(228, 10%, 10%);
+  --color-foreground: hsl(228, 15%, 92%);
+
+  /* Surfaces */
+  --color-surface-base: hsl(228, 10%, 10%);
+  --color-surface-subtle: hsl(228, 10%, 14%);
+  --color-surface-raised: hsl(228, 10%, 18%);
+  --color-surface-overlay: hsl(228, 10%, 22%);
+
+  /* Accent (purple) */
+  --color-accent-subtle: hsl(270, 30%, 20%);
+  --color-accent-muted: hsl(270, 35%, 28%);
+  --color-accent: hsl(270, 50%, 60%);
+  --color-accent-emphasis: hsl(270, 60%, 65%);
+  --color-accent-strong: hsl(270, 70%, 70%);
+
+  /* Feedback */
+  --color-success: hsl(140, 45%, 55%);
+  --color-success-emphasis: hsl(140, 60%, 60%);
+
+  --color-alert: hsl(0, 65%, 60%);
+  --color-alert-emphasis: hsl(0, 75%, 65%);
+
+  /* Text */
+  --color-text-primary: hsl(228, 15%, 92%);
+  --color-text-secondary: hsl(228, 12%, 75%);
+  --color-text-muted: hsl(228, 10%, 60%);
+  --color-text-inverse: hsl(228, 15%, 10%);
+}
+
