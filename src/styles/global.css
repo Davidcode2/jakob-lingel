@@ -1,4 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
 @import "tailwindcss";
+
+@theme { 
+  --font-raleway-dots: "Raleway Dots", sans-serif;
+  --font-fira-code: "Fira Code", sans-serif;
+  --font-quantico: "Quantico", sans-serif;
+  --font-michroma: "Michroma", sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    divide-color: var(--color-border);
+  }
+}
 
 [data-theme="light"] {
   /* Background & foreground */
@@ -30,6 +49,8 @@
   --color-text-secondary: hsl(228, 12%, 30%);
   --color-text-muted: hsl(228, 10%, 45%);
   --color-text-inverse: hsl(0, 0%, 100%);
+
+  --color-border: var(--color-surface-overlay);
 }
 
 [data-theme="dark"] {
@@ -62,5 +83,6 @@
   --color-text-secondary: hsl(228, 12%, 75%);
   --color-text-muted: hsl(228, 10%, 60%);
   --color-text-inverse: hsl(228, 15%, 10%);
-}
 
+  --color-border: var(--color-surface-overlay);
+}
