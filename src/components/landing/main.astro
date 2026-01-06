@@ -1,3 +1,6 @@
+---
+import ProjectDescriptions from './projectDescriptions.astro';
+---
 <div class="">
   <div class="flex p-6 border-b">
     <ul class="ml-auto flex gap-x-6">
@@ -15,57 +18,5 @@
       <div>Learner</div>
     </div>
   </div>
-  <!-- Life -->
-  <div></div>
-  <div class="p-6 lg:p-10 grid gap-y-4">
-    <p>
-    Web development provides me with a creative outlet. I built my first website for my mom's book store about the time I turned 20. It was a one pager using <a href="https://getbootstrap.com/" class="external-link" target="_blank">bootstrap</a>.
-    </p>
-    <p>
-      Ever since, I've had the dream of becoming a fullstack developer. I started working through the <a class="external-link" href="https://www.theodinproject.com" target="_blank">Odin Project</a> to learn the basics.
-    </p>
-    <p>
-      Another chance for practice presented itself when my sister started a <a href="https://schluesselmomente-freiburg.de" target="_blank">counseling business</a>. I built her site using plain HTML and CSS. I used tailwindcss for the first time.
-    </p>
-    <p>
-      Over the course of my studies in computer science, I worked on several projects. One was a tool to automatically grade handwritten exams. The backend was built in python and used openCV for image processing. For the frontend, I tried react.
-    </p>
-    <p>
-      On the side, I worked at Carl Zeiss IQS as a working student. There, I contributed to a sensorics dashboard built in Angular. I also got some experience working with data transfer using MQTT, Websockets and BLE.
-    </p>
-    <p>
-      For my practical study semester I went to work at Bosch Manufacturing Solutions. There I built my first fullstack application from scratch. The app allowed searching for development projects and showed status infos. Project data was retrieved from a MongoDB and a Postgres database. The frontend was Angular and the backend API was built in .NET with C#.
-    </p>
-    <p>
-    During my bachelors thesis, I created another fullstack application using the same stack. This time at Carl Zeiss SMT. It was a report automation tool, which allowed easy visualization of measurement results fed in as CSV files.
-    </p>
-    <p>
-    To start off my career, I went to work at Karcher. I started as a developer in the B2B eCommerce team. I soon took on responsibility as technical lead for a distributed team.
-    </p>
-    <p>
-    I continued to program on the side. My first project after graduation was a fullstack project which I saw as my personal capstone project. It was a plattform for sharing, browsing and selling teaching materials. NestJS was used for the backend and react for the frontend. Keycloak was used as identity provider. I hosted the app on digitalOcean.
-    </p>
-    <p>
-    During that time I worked on my deployment workflow. Github actions was used to ssh code onto my VM and build docker images there.
-    All my apps ran on a single digitalOcean VM. I used docker compose to organize apps and nginx as a reverse proxy to forward traffic to the right app.
-    </p>
-    <p>
-    After the project had progressed far enough for me to label it as finished, I built a personal <a href="https://blog.jakob-lingel.dev" target="_blank">blog</a> using <a class="external-link" href="https://11ty.dev" target="_blank">11ty</a>.
-    </p>
-    <p>
-    The next project was a <a href="https://immoly.io" target="_blank">mortgage calculator</a> where I tried next.js for the first time.
-    </p>
-    <p>
-    My digitalOcean VM got full. I learned about Hetzner and moved my projects over. To do this efficiently I created all my infra as code using terraform.
-    </p>
-    <p>
-      To level up my deployment game, I created a three node kubernetes cluster using k3s. To have everything as code, I used ansible to set it up. ArgoCD serves as my GitOps tool.
-    </p>
-    <p>
-      Instead of ssh'ing code over to my VMs I started building the images in the pipeline and stored them in GHCR. Secrets are fetched from AWS parameter store. 
-    </p>
-    <p>In order to get ready to accept website building jobs on the side, I played around with <a class="external-link" href="https://ghost.org" target="_blank">Ghost CMS</a> and built a <a href="https://mimis-kreativstudio.de" target="_blank">PoC</a>.</p>  
-    <p>The tool didn't convince me for my use case so I tried strapi instead. I added <a class="external-link" href="https://strapi.io" target="_blank">strapi</a> as a backend to a previous project and built another site for a potential customer. I used next.js to build it. After a CVE with score 10 that affected next.js I reconsidered the choice.</p>  
-    <p>This lead me to the presence, where I am using <a class="external-link" href="https://astro.build" target="_blank">astro.js</a> to build this site.</p>  
-  </div>
+  <ProjectDescriptions/>
 </div>
