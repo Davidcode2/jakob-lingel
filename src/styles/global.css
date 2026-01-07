@@ -154,3 +154,13 @@
     background: var(--color-subtle-accent);
   }
 }
+
+.schraffiert {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-border),
+    var(--color-border) 1px,      /* Thin line ends at 2px */
+    var(--color-background) 1px,  /* Background starts at 2px */
+    var(--color-background) 10px  /* Background ends at 20px (Total width) */
+  );
+}

@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  link: string;
+  repositoryLink: string;
+  technologies: string[];
+}
+
+const { title, link, repositoryLink, technologies } = Astro.props;
+---
+  <div class="py-10 flex-1 lg:border-x flex flex-col">
+    <div class="grid gap-y-4">
+      <h4 class="text-2xl lg:text-4xl px-6 lg:px-10">{title}</h4>
+      <div class="px-6 lg:px-10">
+        <slot/>
+      </div>
+      <a class="px-6 lg:px-10" href={link} target="_blank">
+        {link}
+      </a>
+      <div class="grid grid-cols-2 mx-6 lg:mx-10 border-y divide-y">
+        { technologies.map(tech => (
+          <div class="">{tech}</div>
+        )) }
+      </div>
+    </div>
+  </div>

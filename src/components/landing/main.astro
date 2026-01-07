@@ -1,5 +1,6 @@
 ---
 import ProjectDescriptions from './projectDescriptions.astro';
+import Projects from './projects.astro';
 ---
 <div class="">
   <div class="flex p-6 border-b">
@@ -9,8 +10,7 @@ import ProjectDescriptions from './projectDescriptions.astro';
       <li>Contact</li>
     </ul>
   </div>
-  <!-- Hero Section -->
-  <div class="grid grid-cols-[1fr_2fr] divide-x-1 border-b ">
+  <div class="grid grid-cols-[1fr_2fr] divide-x border-b">
     <h1 class="font-michroma italic text-3xl px-5 lg:text-9xl uppercase pt-10 pb-12 lg:px-14">Jakob Lingel</h1>
     <div class="flex flex-col pt-10 lg:pt-14 max-sm:text-sm px-2 md:px-10 lg:px-14 lg:gap-y-10 lg:justify-between lg:pb-12">
       <div>Fullstack Developer</div>
@@ -19,4 +19,5 @@ import ProjectDescriptions from './projectDescriptions.astro';
     </div>
   </div>
   <ProjectDescriptions/>
+  <Projects/>
 </div>
