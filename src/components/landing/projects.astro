@@ -1,31 +1,47 @@
 ---
-import ProjectCard from "../projectCard.astro"
+import ProjectCard from "../projectCard.astro";
 ---
+
 <div>
-  <div class="w-full schraffiert border h-6"></div>
-  <div class="grid border-t grid-cols-[50px_1fr] sm:grid-cols-[50px_1fr_50px] lg:grid-cols-[100px_1fr_100px]">
+  <div
+    class="grid border-t grid-cols-[50px_1fr] sm:grid-cols-[50px_1fr_50px] lg:grid-cols-[100px_1fr_100px]"
+  >
     <div class="border-r"></div>
     <div>
-      <div class="h-12 lg:h-24 border-b">
-      </div>
+      <div class="h-12 lg:h-24 border-b"></div>
       <div class="lg:max-w-1/3 mx-auto grid">
         <div>
-        <ProjectCard title="Immoly.io" link="https://immoly.io" technologies={["Next.js"]}>
-          visual mortgage calculator with multiple color schemes
-        </ProjectCard>
-        <div class="schraffiert border h-6 flex"></div>
-</div>
-<div>
-        <ProjectCard title="Teachly.store" link="https://teachly.store" technologies={["React", "Typescript", "Nest.js"]}>
-      platform for browsing, sharing, buying and selling educational resources
-        </ProjectCard>
-        <div class="schraffiert border h-6 flex"></div>
-</div>
-        <ProjectCard title="Schluesselmomente" link="https://schluesselmomente-freiburg.de" technologies={["HTML", "Tailwindcss", "php"]}>
-      website for local coaching business
+          <ProjectCard
+            title="Immoly.io"
+            link="https://immoly.io"
+            technologies={["Next.js"]}
+          >
+            visual mortgage calculator with multiple color schemes
+          </ProjectCard>
+          <div class="schraffiert border h-6 flex"></div>
+        </div>
+        <div>
+          <ProjectCard
+            title="Teachly.store"
+            link="https://teachly.store"
+            technologies={["React", "Typescript", "Nest.js"]}
+          >
+            platform for browsing, sharing, buying and selling educational
+            resources
+          </ProjectCard>
+          <div class="schraffiert border h-6 flex"></div>
+        </div>
+        <ProjectCard
+          title="Schluesselmomente"
+          link="https://schluesselmomente-freiburg.de"
+          technologies={["HTML", "Tailwindcss", "php"]}
+        >
+          website for local coaching business
         </ProjectCard>
       </div>
+      <div class="h-12 lg:h-24 border-t"></div>
     </div>
-    <div class="max-sm:hidden w-12.5 lg:w-25 border-l">
-    </div>
+    <div class="max-sm:hidden w-12.5 lg:w-25 border-l"></div>
+  </div>
+  <div class="w-full border-b"></div>
 </div>
