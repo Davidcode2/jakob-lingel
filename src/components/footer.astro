@@ -1,0 +1,30 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div>
+  <div
+    class="grid grid-cols-[50px_1fr] sm:grid-cols-[50px_1fr_50px] lg:grid-cols-[100px_1fr_100px]"
+  >
+    <div class="border-r"></div>
+    <div class="p-10 grid gap-y-6">
+      <a
+        href="https://github.com/davidcode2"
+        target="_blank"
+        class="text-(--foreground) flex gap-x-4"
+      >
+        <Icon name="simple-icons:github" size={24} />
+        GitHub
+      </a>
+      <a
+        href="https://www.linkedin.com/in/jakob-lingel-613976253/"
+        target="_blank"
+        class="text-(--foreground) flex gap-x-4"
+      >
+        <Icon name="simple-icons:linkedin" size={24} />
+        LinkedIn
+      </a>
+    </div>
+    <div class="max-sm:hidden border-l"></div>
+  </div>
+</div>

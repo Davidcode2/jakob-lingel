@@ -15,8 +15,29 @@ export default defineConfig({
     { 
       include: 
       {
-        lucide: ["*"],
-        "simple-icons": ["*"],
+        lucide: [
+          "book-lock",
+          "chart-no-axes-gantt",
+          "flower",
+          "moon-star",
+          "pencil-line",
+          "route",
+          "sparkles",
+          "user-round",
+          "view",
+        ],
+        "simple-icons": [
+          "angular",
+          "astro",
+          "dotnet",
+          "eleventy",
+          "github",
+          "kubernetes",
+          "linkedin",
+          "nextdotjs",
+          "strapi",
+          "terraform",
+        ],
       },
     }
   )]
