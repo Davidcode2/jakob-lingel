@@ -1,0 +1,15 @@
+/**
+ * Mouse tracker styles
+ * Creates a smooth following cursor effect for link hovers
+ */
+
+#mouse-tracker {
+  position: fixed;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+#mouse-tracker.visible {
+  opacity: 1;
+}

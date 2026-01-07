@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components'
 import DescriptionBlock from './DescriptionBlock.astro'
+import '../../styles/mouseTracker.css'
 ---
 
 <div class="grid">
@@ -8,10 +9,10 @@ import DescriptionBlock from './DescriptionBlock.astro'
       Web development provides me with a creative outlet. I built my first website for my mom's book store about the time I turned 20. It was a one pager using <a href="https://getbootstrap.com/" class="external-link" target="_blank">bootstrap</a>.
   </DescriptionBlock>
   <DescriptionBlock iconName="lucide:sparkles">
-    Ever since, I've had the dream of becoming a fullstack developer. I started working through the <a class="external-link" href="https://www.theodinproject.com" target="_blank">Odin Project</a> to learn the basics.
+      Ever since, I've had the dream of becoming a fullstack developer. I started working through the <a class="external-link py-5" href="https://www.theodinproject.com" target="_blank">Odin Project</a> to learn the basics.
   </DescriptionBlock>
   <DescriptionBlock iconName="lucide:pencil-line">
-    Another chance for practice presented itself when my sister started a <a href="https://schluesselmomente-freiburg.de" target="_blank">counseling business</a>. I built her site using plain HTML and CSS. I used tailwindcss for the first time.
+    Another chance for practice presented itself when my sister started a <a class="py-5" href="https://schluesselmomente-freiburg.de" target="_blank">counseling business</a>. I built her site using plain HTML and CSS. I used tailwindcss for the first time.
   </DescriptionBlock>
   <DescriptionBlock iconName="lucide:chart-no-axes-gantt">
     Over the course of my studies in computer science, I worked on several projects. One was a tool to automatically grade handwritten exams. The backend was built in python and used openCV for image processing. For the frontend, I tried react.
@@ -36,10 +37,10 @@ import DescriptionBlock from './DescriptionBlock.astro'
   All my apps ran on a single digitalOcean VM. I used docker compose to organize apps and nginx as a reverse proxy to forward traffic to the right app.
   </DescriptionBlock>
   <DescriptionBlock iconName="simple-icons:eleventy">
-  After the project had progressed far enough for me to label it as finished, I built a personal <a href="https://blog.jakob-lingel.dev" target="_blank">blog</a> using <a class="external-link" href="https://11ty.dev" target="_blank">11ty</a>.
+  After the project had progressed far enough for me to label it as finished, I built a personal <a href="https://blog.jakob-lingel.dev" target="_blank">blog</a> using <a class="external-link py-5" href="https://11ty.dev" target="_blank">11ty</a>.
   </DescriptionBlock>
   <DescriptionBlock iconName="simple-icons:nextdotjs">
-  The next project was a <a href="https://immoly.io" target="_blank">mortgage calculator</a> where I tried next.js for the first time.
+  The next project was a <a class="py-5" href="https://immoly.io" target="_blank">mortgage calculator</a> where I tried next.js for the first time.
   </DescriptionBlock>
   <DescriptionBlock iconName="simple-icons:terraform">
   My digitalOcean VM got full. I learned about Hetzner and moved my projects over. To do this efficiently I created all my infra as code using terraform.
@@ -50,7 +51,13 @@ import DescriptionBlock from './DescriptionBlock.astro'
   <DescriptionBlock iconName="lucide:book-lock">
     Instead of ssh'ing code over to my VMs I started building the images in the pipeline and stored them in GHCR. Secrets are fetched from AWS parameter store. 
   </DescriptionBlock >
-  <DescriptionBlock iconName="lucide:flower">In order to get ready to accept website building jobs on the side, I played around with <a class="external-link" href="https://ghost.org" target="_blank">Ghost CMS</a> and built a <a href="https://mimis-kreativstudio.de" target="_blank">PoC</a>.</DescriptionBlock>  
+  <DescriptionBlock iconName="lucide:flower">In order to get ready to accept website building jobs on the side, I played around with <a class="external-link py-5" href="https://ghost.org" target="_blank">Ghost CMS</a> and built a <a href="https://mimis-kreativstudio.de" target="_blank">PoC</a>.</DescriptionBlock>  
   <DescriptionBlock iconName="simple-icons:strapi">The tool didn't convince me for my use case so I tried strapi instead. I added <a class="external-link" href="https://strapi.io" target="_blank">strapi</a> as a backend to a previous project and built another site for a potential customer. I used next.js to build it. After a CVE with score 10 that affected next.js I reconsidered the choice.</DescriptionBlock>  
   <DescriptionBlock iconName="simple-icons:astro">This lead me to the presence, where I am using <a class="external-link" href="https://astro.build" target="_blank">astro.js</a> to build this site.</DescriptionBlock>  
-</div>
+  </div>
+
+  <Icon size={48} name="lucide:move-up-right" id="mouse-tracker" class="pointer-events-none"></Icon>
+
+<script>
+  import { initMouseTracker } from '../../scripts/mouseTracker.js';
+</script>

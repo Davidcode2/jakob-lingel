@@ -25,6 +25,7 @@ export default defineConfig({
           "sparkles",
           "user-round",
           "view",
+          "move-up-right",
         ],
         "simple-icons": [
           "angular",
