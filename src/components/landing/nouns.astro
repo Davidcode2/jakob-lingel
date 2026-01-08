@@ -6,17 +6,8 @@
       <div class="self-center w-4 h-full"></div>
       <div class="self-center"></div>
     </div>
-    <div>Fullstack Developer</div>
-  </div>
-  <div class="flex">
-    <div class="grid grid-rows-2 divide-y">
-      <div class="self-center w-4 h-full"></div>
-      <div class="self-center"></div>
-    </div>
-    <div id="text-elements" class="h-6">
-      <div class="">Design Enthusiast</div>
-      <div class="hidden">Aspiring Architect</div>
-      <div class="hidden">DevOps Fan</div>
+    <div class="h-6 flex">
+      <span id="typed-text1">Fullstack Developer</span><span id="cursor"></span>
     </div>
   </div>
   <div class="flex">
@@ -24,35 +15,35 @@
       <div class="self-center w-4 h-full"></div>
       <div class="self-center"></div>
     </div>
-    <div>Learner</div>
+    <div class="h-6 flex">
+      <span id="typed-text2">Design enthusiast</span><span id="cursor"></span>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="grid grid-rows-2 divide-y">
+      <div class="self-center w-4 h-full"></div>
+      <div class="self-center"></div>
+    </div>
+    <div class="h-6 flex">
+      <span id="typed-text3">Learner</span><span id="cursor"></span>
+    </div>
   </div>
 </div>
 
 <style>
-  /* Step 1: Define the animation with @keyframes */
-  /* This describes WHAT changes during the animation */
-  @keyframes dash {
-    from {
-      /* Starting state (0%) */
-      transform: rotateX(-90deg);
-      opacity: 0;
-    }
-    to {
-      /* Ending state (100%) */
-      opacity: 1;
-    }
+  /* Cursor styling - stays visible, doesn't flash */
+  #cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: var(--foreground);
+    margin-left: 2px;
+    animation: none; /* No flashing - just stays visible */
   }
 
-  /* Step 2: Apply the animation to an element */
-  /* This describes HOW the animation plays */
-  .animated-text {
-    animation-name: dash; /* Which @keyframes to use */
-    animation-duration: 2s; /* How long the animation takes */
-    animation-timing-function: ease-out; /* Speed curve (slow end) */
-    animation-delay: 0s; /* Wait before starting */
-    animation-iteration-count: 1; /* How many times (1, infinite, etc) */
-    animation-fill-mode: forwards; /* Keep final state after animation */
-    /* animation: dash 2s ease-out 0s 1 forwards; */
+  #typed-text {
+    display: inline;
+    min-height: 1em;
   }
 
   .hidden {
@@ -61,23 +52,78 @@
 </style>
 
 <script>
-  const addAnimation = () => {
-    let textElements = document.querySelector("#text-elements");
-    console.log(textElements);
-    if (!textElements) return;
-    for (let i = 0; i < textElements.children.length; i++) {
-      setTimeout(() => {
-        if (textElements.children[i].classList.contains("hidden")) {
-          textElements.children[i].classList.remove("hidden");
-        }
-        textElements.children[i].classList.add("animated-text");
-        if (i < textElements.children.length - 1) {
-          setTimeout(() => {
-            textElements.children[i].classList.add("hidden");
-          }, 1880);
-        }
-      }, i * 2000);
+  /**
+   * Typing Animation - Types text letter by letter with a cursor
+   * Educational breakdown:
+   * 1. Loop through each word in the array
+   * 2. Type each letter with a small delay between them
+   * 3. Pause when the word is complete
+   * 4. Delete each letter with a small delay
+   * 5. Move to the next word
+   */
+
+  const cursorElement = document.getElementById("cursor");
+
+  // Configuration - adjust these to change animation speed
+  const TYPING_SPEED = 60; // milliseconds per letter
+  const DELETING_SPEED = 50; // milliseconds per letter (usually faster)
+  const PAUSE_DURATION = 6000; // milliseconds to hold the word
+  const DELAY_BETWEEN_WORDS = 200; // milliseconds between delete and next type
+
+  async function typeAnimation(target: HTMLElement | null, words: string[]) {
+    if (!target) return;
+    if (words.length === 0) return;
+
+    let currentWordIndex = 0;
+    let currentText = words[0];
+
+    // Display first word immediately (without deletion animation)
+    target.textContent = currentText;
+
+    while (true) {
+      // PAUSE PHASE: Hold the complete word
+      const random = Math.random() * 1000 * 20;
+      await sleep(random + PAUSE_DURATION);
+
+      // DELETING PHASE: Remove letters one by one
+      for (let i = currentText.length; i > 0; i--) {
+        currentText = currentText.substring(0, i - 1);
+        target.textContent = currentText;
+        await sleep(DELETING_SPEED);
+      }
+
+      // Move to next word
+      currentWordIndex = (currentWordIndex + 1) % words.length;
+      const nextWord = words[currentWordIndex];
+      await sleep(DELAY_BETWEEN_WORDS);
+
+      // TYPING PHASE: Add letters one by one
+      currentText = "";
+      for (let i = 0; i < nextWord.length; i++) {
+        currentText += nextWord[i];
+        target.textContent = currentText;
+        await sleep(TYPING_SPEED);
+      }
     }
-  };
-  addAnimation();
+  }
+
+  // Helper function to create delays
+  function sleep(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+  function staggeredRun(delay: number) {
+    const words1 = ["Fullstack developer", "Hobby writer", "Linux user"];
+    const typedTextElement1 = document.getElementById("typed-text1");
+    typeAnimation(typedTextElement1, words1);
+
+    const words2 = ["Design Enthusiast", "Aspiring Architect", "DevOps Fan"];
+    const typedTextElement2 = document.getElementById("typed-text2");
+    typeAnimation(typedTextElement2, words2);
+
+    const words3 = ["Learner", "Vim fan", "Arch btw"];
+    const typedTextElement3 = document.getElementById("typed-text3");
+    typeAnimation(typedTextElement3, words3);
+  }
+
+  staggeredRun(500);
 </script>
