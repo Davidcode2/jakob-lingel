@@ -1,63 +1,141 @@
 ---
-import { Icon } from 'astro-icon/components'
-import DescriptionBlock from './DescriptionBlock.astro'
-import '../../styles/mouseTracker.css'
+import { Icon } from "astro-icon/components";
+import DescriptionBlock from "./DescriptionBlock.astro";
+import "../../styles/mouseTracker.css";
 ---
 
 <div class="grid">
   <DescriptionBlock iconName="lucide:route">
-      Web development provides me with a creative outlet. I built my first website for my mom's book store about the time I turned 20. It was a one pager using <a href="https://getbootstrap.com/" class="external-link" target="_blank">bootstrap</a>.
+    Web development provides me with a creative outlet. I built my first website
+    for my mom's bookstore around the time I turned 20. It was a one-pager using <a
+      href="https://getbootstrap.com/"
+      class="external-link"
+      target="_blank">Bootstrap</a
+    >.
   </DescriptionBlock>
   <DescriptionBlock iconName="lucide:sparkles">
-      Ever since, I've had the dream of becoming a fullstack developer. I started working through the <a class="external-link py-5" href="https://www.theodinproject.com" target="_blank">Odin Project</a> to learn the basics.
+    Ever since, I've dreamed of becoming a full-stack developer. I started
+    working through <a
+      class="external-link py-5"
+      href="https://www.theodinproject.com"
+      target="_blank">The Odin Project</a
+    > to learn the basics.
   </DescriptionBlock>
   <DescriptionBlock iconName="lucide:pencil-line">
-    Another chance for practice presented itself when my sister started a <a class="py-5" href="https://schluesselmomente-freiburg.de" target="_blank">counseling business</a>. I built her site using plain HTML and CSS. I used tailwindcss for the first time.
+    Another chance for practice presented itself when my sister started a <a
+      class="py-5"
+      href="https://schluesselmomente-freiburg.de"
+      target="_blank">counseling business</a
+    >. I built her site using plain HTML and CSS, and used Tailwind CSS for the
+    first time.
   </DescriptionBlock>
   <DescriptionBlock iconName="lucide:chart-no-axes-gantt">
-    Over the course of my studies in computer science, I worked on several projects. One was a tool to automatically grade handwritten exams. The backend was built in python and used openCV for image processing. For the frontend, I tried react.
+    Over the course of my computer science studies, I worked on several
+    projects. One was a tool to automatically grade handwritten exams; the
+    backend was built in Python using OpenCV for image processing, and I used
+    React for the frontend.
   </DescriptionBlock>
   <DescriptionBlock iconName="simple-icons:angular">
-    On the side, I worked at Carl Zeiss IQS as a working student. There, I contributed to a sensorics dashboard built in Angular. I also got some experience working with data transfer using MQTT, Websockets and BLE.
+    On the side, I worked at Carl Zeiss IQS as a working student. There, I
+    contributed to a sensorics dashboard built in Angular. I also gained
+    experience working with data transfer using MQTT, WebSockets, and BLE.
   </DescriptionBlock>
   <DescriptionBlock iconName="simple-icons:dotnet">
-    For my practical study semester I went to work at Bosch Manufacturing Solutions. There I built my first fullstack application from scratch. The app allowed searching for development projects and showed status infos. Project data was retrieved from a MongoDB and a Postgres database. The frontend was Angular and the backend API was built in .NET with C#.
+    For my practical study semester, I worked at Bosch Manufacturing Solutions.
+    There, I built my first full-stack application from scratch. The app allowed
+    users to search for development projects and view status updates. Project
+    data was retrieved from MongoDB and Postgres databases. The frontend used
+    Angular, and the backend API was built in .NET with C#.
   </DescriptionBlock>
   <DescriptionBlock iconName="lucide:view">
-  During my bachelors thesis, I created another fullstack application using the same stack. This time at Carl Zeiss SMT. It was a report automation tool, which allowed easy visualization of measurement results fed in as CSV files.
+    During my Bachelor's thesis, I created another full-stack application using
+    the same stack, this time at Carl Zeiss SMT. It was a report automation tool
+    that enabled easy visualization of measurement results fed in as CSV files.
   </DescriptionBlock>
   <DescriptionBlock iconName="lucide:user-round">
-  To start off my career, I went to work at Karcher. I started as a developer in the B2B eCommerce team. I soon took on responsibility as technical lead for a distributed team.
+    To start my career, I joined Kärcher. I began as a developer in the B2B
+    eCommerce team and soon took on responsibility as the technical lead for a
+    distributed team.
   </DescriptionBlock>
   <DescriptionBlock iconName="lucide:moon-star">
-  I continued to program on the side. My first project after graduation was a fullstack project which I saw as my personal capstone project. It was a plattform for sharing, browsing and selling teaching materials. NestJS was used for the backend and react for the frontend. Keycloak was used as identity provider. I hosted the app on digitalOcean.
+    I continued to program on the side. My first project after graduation was a
+    full-stack application which I viewed as my personal capstone project: a
+    platform for sharing, browsing, and selling teaching materials. I used
+    NestJS for the backend, React for the frontend, and Keycloak as the identity
+    provider, hosting the app on DigitalOcean.
   </DescriptionBlock>
   <DescriptionBlock iconName="simple-icons:github">
-  During that time I worked on my deployment workflow. Github actions was used to ssh code onto my VM and build docker images there.
-  All my apps ran on a single digitalOcean VM. I used docker compose to organize apps and nginx as a reverse proxy to forward traffic to the right app.
+    During that time, I refined my deployment workflow. GitHub Actions was used
+    to SSH code onto my VM and build Docker images there. All my apps ran on a
+    single DigitalOcean VM, using Docker Compose to organize services and Nginx
+    as a reverse proxy.
   </DescriptionBlock>
   <DescriptionBlock iconName="simple-icons:eleventy">
-  After the project had progressed far enough for me to label it as finished, I built a personal <a href="https://blog.jakob-lingel.dev" target="_blank">blog</a> using <a class="external-link py-5" href="https://11ty.dev" target="_blank">11ty</a>.
+    After that project was finished, I built a personal <a
+      href="https://blog.jakob-lingel.dev"
+      target="_blank">blog</a
+    > using <a
+      class="external-link py-5"
+      href="https://11ty.dev"
+      target="_blank">11ty</a
+    >.
   </DescriptionBlock>
   <DescriptionBlock iconName="simple-icons:nextdotjs">
-  The next project was a <a class="py-5" href="https://immoly.io" target="_blank">mortgage calculator</a> where I tried next.js for the first time.
+    My next project was a <a
+      class="py-5"
+      href="https://immoly.io"
+      target="_blank">mortgage calculator</a
+    > where I explored Next.js for the first time.
   </DescriptionBlock>
   <DescriptionBlock iconName="simple-icons:terraform">
-  My digitalOcean VM got full. I learned about Hetzner and moved my projects over. To do this efficiently I created all my infra as code using terraform.
+    When my DigitalOcean VM reached capacity, I moved my projects over to
+    Hetzner. To do this efficiently, I defined all my infrastructure as code
+    using Terraform.
   </DescriptionBlock>
   <DescriptionBlock iconName="simple-icons:kubernetes">
-    To level up my deployment game, I created a three node kubernetes cluster using k3s. To have everything as code, I used ansible to set it up. ArgoCD serves as my GitOps tool.
+    To level up my deployment game, I created a three-node Kubernetes cluster
+    using k3s. To keep everything as code, I used Ansible for the setup and
+    ArgoCD as my GitOps tool.
   </DescriptionBlock>
   <DescriptionBlock iconName="lucide:book-lock">
-    Instead of ssh'ing code over to my VMs I started building the images in the pipeline and stored them in GHCR. Secrets are fetched from AWS parameter store. 
-  </DescriptionBlock >
-  <DescriptionBlock iconName="lucide:flower">In order to get ready to accept website building jobs on the side, I played around with <a class="external-link py-5" href="https://ghost.org" target="_blank">Ghost CMS</a> and built a <a href="https://mimis-kreativstudio.de" target="_blank">PoC</a>.</DescriptionBlock>  
-  <DescriptionBlock iconName="simple-icons:strapi">The tool didn't convince me for my use case so I tried strapi instead. I added <a class="external-link" href="https://strapi.io" target="_blank">strapi</a> as a backend to a previous project and built another site for a potential customer. I used next.js to build it. After a CVE with score 10 that affected next.js I reconsidered the choice.</DescriptionBlock>  
-  <DescriptionBlock iconName="simple-icons:astro">This lead me to the presence, where I am using <a class="external-link" href="https://astro.build" target="_blank">astro.js</a> to build this site.</DescriptionBlock>  
-  </div>
+    Instead of SSH'ing code to my VMs, I started building images in the pipeline
+    and storing them in GHCR. Secrets are now securely fetched from AWS
+    Parameter Store.
+  </DescriptionBlock>
+  <DescriptionBlock iconName="lucide:flower"
+    >In preparation for freelance website building, I experimented with <a
+      class="external-link py-5"
+      href="https://ghost.org"
+      target="_blank">Ghost CMS</a
+    > and built a <a href="https://mimis-kreativstudio.de" target="_blank"
+      >PoC</a
+    >.</DescriptionBlock
+  >
+  <DescriptionBlock iconName="simple-icons:strapi"
+    >That tool didn't quite fit my use case, so I tried Strapi instead. I added <a
+      class="external-link"
+      href="https://strapi.io"
+      target="_blank">Strapi</a
+    > as a backend to a previous project and built a site for a potential customer
+    using Next.js. However, after a critical CVE affected Next.js, I reconsidered
+    that choice.</DescriptionBlock
+  >
+  <DescriptionBlock iconName="simple-icons:astro"
+    >This led me to the present, where I am using <a
+      class="external-link"
+      href="https://astro.build"
+      target="_blank">Astro</a
+    > to build this site.</DescriptionBlock
+  >
+</div>
 
-  <Icon size={48} name="lucide:move-up-right" id="mouse-tracker" class="pointer-events-none"></Icon>
+<Icon
+  size={48}
+  name="lucide:move-up-right"
+  id="mouse-tracker"
+  class="pointer-events-none"
+/>
 
 <script>
-  import { initMouseTracker } from '../../scripts/mouseTracker.js';
+  import { initMouseTracker } from "../../scripts/mouseTracker.js";
 </script>
