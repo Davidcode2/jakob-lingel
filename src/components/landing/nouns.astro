@@ -1,0 +1,83 @@
+<div
+  class="flex flex-col lg:pt-14 max-sm:text-sm md:py-1 lg:px-14 lg:gap-y-10 lg:justify-between lg:pb-12"
+>
+  <div class="flex">
+    <div class="grid grid-rows-2 divide-y">
+      <div class="self-center w-4 h-full"></div>
+      <div class="self-center"></div>
+    </div>
+    <div>Fullstack Developer</div>
+  </div>
+  <div class="flex">
+    <div class="grid grid-rows-2 divide-y">
+      <div class="self-center w-4 h-full"></div>
+      <div class="self-center"></div>
+    </div>
+    <div id="text-elements" class="h-6">
+      <div class="">Design Enthusiast</div>
+      <div class="hidden">Aspiring Architect</div>
+      <div class="hidden">DevOps Fan</div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="grid grid-rows-2 divide-y">
+      <div class="self-center w-4 h-full"></div>
+      <div class="self-center"></div>
+    </div>
+    <div>Learner</div>
+  </div>
+</div>
+
+<style>
+  /* Step 1: Define the animation with @keyframes */
+  /* This describes WHAT changes during the animation */
+  @keyframes dash {
+    from {
+      /* Starting state (0%) */
+      transform: rotateX(-90deg);
+      opacity: 0;
+    }
+    to {
+      /* Ending state (100%) */
+      opacity: 1;
+    }
+  }
+
+  /* Step 2: Apply the animation to an element */
+  /* This describes HOW the animation plays */
+  .animated-text {
+    animation-name: dash; /* Which @keyframes to use */
+    animation-duration: 2s; /* How long the animation takes */
+    animation-timing-function: ease-out; /* Speed curve (slow end) */
+    animation-delay: 0s; /* Wait before starting */
+    animation-iteration-count: 1; /* How many times (1, infinite, etc) */
+    animation-fill-mode: forwards; /* Keep final state after animation */
+    /* animation: dash 2s ease-out 0s 1 forwards; */
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  const addAnimation = () => {
+    let textElements = document.querySelector("#text-elements");
+    console.log(textElements);
+    if (!textElements) return;
+    for (let i = 0; i < textElements.children.length; i++) {
+      setTimeout(() => {
+        if (textElements.children[i].classList.contains("hidden")) {
+          textElements.children[i].classList.remove("hidden");
+        }
+        textElements.children[i].classList.add("animated-text");
+        if (i < textElements.children.length - 1) {
+          setTimeout(() => {
+            textElements.children[i].classList.add("hidden");
+          }, 1880);
+        }
+      }, i * 2000);
+    }
+  };
+  addAnimation();
+</script>
