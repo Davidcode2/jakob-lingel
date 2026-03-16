@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "server",
+  "dolt_database": "jakob_lingel",
+  "project_id": "8b3f7443-dc06-4fcf-b315-8c1486e61f8e"
+}
