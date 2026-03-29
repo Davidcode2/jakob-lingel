@@ -11,14 +11,53 @@ interface Props {
 const { title, link, repositoryLink, technologies, desktopScreenshot, mobileScreenshot } = Astro.props;
 ---
 <div class="relative py-10 flex-1 lg:border-x flex flex-col">
-  {/* Screenshots - Desktop: positioned left with 3D tilt, Mobile: stacked below */}
+  {/* Screenshots - Desktop: side by side on desktop, stacked on mobile */}
   {(desktopScreenshot || mobileScreenshot) && (
-    <div class="lg:absolute lg:-left-32 xl:-left-40 lg:top-1/2 lg:-translate-y-1/2 lg:w-28 xl:w-32 z-10 px-6 lg:px-0 mb-6 lg:mb-0">
-      <div class="relative h-48 lg:h-auto perspective-1000">
-        {/* Desktop Screenshot */}
-        {desktopScreenshot && (
+    <>
+      {/* Mobile Layout - Stacked below content */}
+      <div class="lg:hidden px-6 mb-6">
+        <div class="relative h-48 perspective-1000">
+          {/* Desktop Screenshot - Mobile View */}
+          {desktopScreenshot && (
+            <div 
+              class="absolute w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
+              style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
+              onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
+              onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
+            >
+              <img 
+                src={desktopScreenshot} 
+                alt={`${title} desktop screenshot`}
+                class="w-full h-auto object-cover object-top"
+                loading="lazy"
+              />
+            </div>
+          )}
+          {/* Mobile Screenshot - Mobile View */}
+          {mobileScreenshot && (
+            <div 
+              class={`absolute shadow-2xl rounded-lg overflow-hidden border-2 border-white/20 ${desktopScreenshot ? 'w-1/2 -bottom-4 -right-4' : 'w-full'}`}
+              style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
+              onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
+              onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
+            >
+              <img 
+                src={mobileScreenshot} 
+                alt={`${title} mobile screenshot`}
+                class="w-full h-auto object-cover object-top"
+                loading="lazy"
+              />
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Desktop Layout - Desktop on left, Mobile on right */}
+      {/* Desktop Screenshot - positioned on left */}
+      {desktopScreenshot && (
+        <div class="hidden lg:block lg:absolute lg:-left-40 xl:-left-48 lg:top-1/2 lg:-translate-y-1/2 lg:w-36 xl:w-44 z-10 perspective-1000">
           <div 
-            class="absolute lg:relative w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
+            class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
             style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
             onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
             onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
@@ -30,14 +69,17 @@ const { title, link, repositoryLink, technologies, desktopScreenshot, mobileScre
               loading="lazy"
             />
           </div>
-        )}
-        {/* Mobile Screenshot */}
-        {mobileScreenshot && (
+        </div>
+      )}
+
+      {/* Mobile Screenshot - positioned on right */}
+      {mobileScreenshot && (
+        <div class="hidden lg:block lg:absolute lg:-right-32 xl:-right-40 lg:top-1/2 lg:-translate-y-1/2 lg:w-24 xl:w-28 z-10 perspective-1000">
           <div 
-            class={`absolute shadow-2xl rounded-lg overflow-hidden border-2 border-white/20 ${desktopScreenshot ? 'w-1/2 -bottom-4 -right-4 lg:w-16 xl:w-20 lg:-bottom-8 lg:-right-8' : 'w-full'}`}
-            style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
+            class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
+            style="transform: perspective(1000px) rotateX(12deg) rotateZ(-6deg) rotateY(25deg); transform-style: preserve-3d;"
             onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
-            onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
+            onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(-6deg) rotateY(25deg)'"
           >
             <img 
               src={mobileScreenshot} 
@@ -46,9 +88,9 @@ const { title, link, repositoryLink, technologies, desktopScreenshot, mobileScre
               loading="lazy"
             />
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      )}
+    </>
   )}
   
   <div class="grid gap-y-4">
