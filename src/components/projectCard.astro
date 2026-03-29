@@ -4,23 +4,65 @@ interface Props {
   link: string;
   repositoryLink?: string;
   technologies: string[];
+  desktopScreenshot?: string;
+  mobileScreenshot?: string;
 }
 
-const { title, link, repositoryLink, technologies } = Astro.props;
+const { title, link, repositoryLink, technologies, desktopScreenshot, mobileScreenshot } = Astro.props;
 ---
-  <div class="py-10 flex-1 lg:border-x flex flex-col">
-    <div class="grid gap-y-4">
-      <h4 class="text-2xl lg:text-4xl px-6 lg:px-10">{title}</h4>
-      <div class="px-6 lg:px-10">
-        <slot/>
-      </div>
-      <a class="px-6 lg:px-10" href={link} target="_blank">
-        {link}
-      </a>
-      <div class="grid grid-cols-2 mx-6 lg:mx-10 border-y divide-y">
-        { technologies.map(tech => (
-          <div class="">{tech}</div>
-        )) }
+<div class="relative py-10 flex-1 lg:border-x flex flex-col">
+  {/* Screenshots - Desktop: positioned left with 3D tilt, Mobile: stacked below */}
+  {(desktopScreenshot || mobileScreenshot) && (
+    <div class="lg:absolute lg:-left-32 xl:-left-40 lg:top-1/2 lg:-translate-y-1/2 lg:w-28 xl:w-32 z-10 px-6 lg:px-0 mb-6 lg:mb-0">
+      <div class="relative h-48 lg:h-auto perspective-1000">
+        {/* Desktop Screenshot */}
+        {desktopScreenshot && (
+          <div 
+            class="absolute lg:relative w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
+            style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
+            onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
+            onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
+          >
+            <img 
+              src={desktopScreenshot} 
+              alt={`${title} desktop screenshot`}
+              class="w-full h-auto object-cover"
+              loading="lazy"
+            />
+          </div>
+        )}
+        {/* Mobile Screenshot */}
+        {mobileScreenshot && (
+          <div 
+            class={`absolute shadow-2xl rounded-lg overflow-hidden border-2 border-white/20 ${desktopScreenshot ? 'w-1/2 -bottom-4 -right-4 lg:w-16 xl:w-20 lg:-bottom-8 lg:-right-8' : 'w-full'}`}
+            style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
+            onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
+            onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
+          >
+            <img 
+              src={mobileScreenshot} 
+              alt={`${title} mobile screenshot`}
+              class="w-full h-auto object-cover"
+              loading="lazy"
+            />
+          </div>
+        )}
       </div>
     </div>
+  )}
+  
+  <div class="grid gap-y-4">
+    <h4 class="text-2xl lg:text-4xl px-6 lg:px-10">{title}</h4>
+    <div class="px-6 lg:px-10">
+      <slot/>
+    </div>
+    <a class="px-6 lg:px-10 break-all" href={link} target="_blank">
+      {link}
+    </a>
+    <div class="grid grid-cols-2 mx-6 lg:mx-10 border-y divide-y">
+      { technologies.map(tech => (
+        <div class="">{tech}</div>
+      )) }
+    </div>
   </div>
+</div>
