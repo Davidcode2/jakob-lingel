@@ -10,54 +10,34 @@ interface Props {
 
 const { title, link, repositoryLink, technologies, desktopScreenshot, mobileScreenshot } = Astro.props;
 ---
-<div class="relative py-10 flex-1 lg:border-x flex flex-col">
-  {/* Screenshots - Desktop: side by side on desktop, stacked on mobile */}
-  {(desktopScreenshot || mobileScreenshot) && (
-    <>
-      {/* Mobile Layout - Stacked below content */}
-      <div class="lg:hidden px-6 mb-6">
-        <div class="relative h-48 perspective-1000">
-          {/* Desktop Screenshot - Mobile View */}
-          {desktopScreenshot && (
-            <div 
-              class="absolute w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
-              style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
-              onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
-              onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
-            >
-              <img 
-                src={desktopScreenshot} 
-                alt={`${title} desktop screenshot`}
-                class="w-full h-auto object-cover object-top"
-                loading="lazy"
-              />
-            </div>
-          )}
-          {/* Mobile Screenshot - Mobile View */}
-          {mobileScreenshot && (
-            <div 
-              class={`absolute shadow-2xl rounded-lg overflow-hidden border-2 border-white/20 ${desktopScreenshot ? 'w-1/2 -bottom-4 -right-4' : 'w-full'}`}
-              style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
-              onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
-              onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
-            >
-              <img 
-                src={mobileScreenshot} 
-                alt={`${title} mobile screenshot`}
-                class="w-full h-auto object-cover object-top"
-                loading="lazy"
-              />
-            </div>
-          )}
-        </div>
+<div class="relative py-10 flex-1 lg:border-x flex flex-col bg-inherit">
+  {/* Mobile Screenshot - positioned on right, IN FRONT of content */}
+  {mobileScreenshot && (
+    <div class="hidden lg:block lg:absolute lg:-right-32 xl:-right-48 lg:top-1/2 lg:-translate-y-1/2 lg:w-48 xl:w-64 z-20 perspective-1000">
+      <div 
+        class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
+        style="transform: perspective(1000px) rotateX(12deg) rotateZ(-6deg) rotateY(25deg); transform-style: preserve-3d;"
+        onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
+        onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(-6deg) rotateY(25deg)'"
+      >
+        <img 
+          src={mobileScreenshot} 
+          alt={`${title} mobile screenshot`}
+          class="w-full h-auto object-cover object-top"
+          loading="lazy"
+        />
       </div>
+    </div>
+  )}
 
-      {/* Desktop Layout - Desktop on left, Mobile on right */}
-      {/* Desktop Screenshot - positioned on LEFT, behind content */}
-      {desktopScreenshot && (
-        <div class="hidden lg:block lg:absolute lg:-left-80 xl:-left-96 lg:top-1/2 lg:-translate-y-1/2 lg:w-72 xl:w-96 -z-10 perspective-1000">
+  {/* Mobile Layout - Stacked below content */}
+  {(desktopScreenshot || mobileScreenshot) && (
+    <div class="lg:hidden px-6 mb-6">
+      <div class="relative h-48 perspective-1000">
+        {/* Desktop Screenshot - Mobile View */}
+        {desktopScreenshot && (
           <div 
-            class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
+            class="absolute w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
             style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
             onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
             onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
@@ -69,17 +49,14 @@ const { title, link, repositoryLink, technologies, desktopScreenshot, mobileScre
               loading="lazy"
             />
           </div>
-        </div>
-      )}
-
-      {/* Mobile Screenshot - positioned on right, behind content */}
-      {mobileScreenshot && (
-        <div class="hidden lg:block lg:absolute lg:-right-32 xl:-right-48 lg:top-1/2 lg:-translate-y-1/2 lg:w-48 xl:w-64 -z-10 perspective-1000">
+        )}
+        {/* Mobile Screenshot - Mobile View */}
+        {mobileScreenshot && (
           <div 
-            class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
-            style="transform: perspective(1000px) rotateX(12deg) rotateZ(-6deg) rotateY(25deg); transform-style: preserve-3d;"
+            class={`absolute shadow-2xl rounded-lg overflow-hidden border-2 border-white/20 ${desktopScreenshot ? 'w-1/2 -bottom-4 -right-4' : 'w-full'}`}
+            style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
             onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
-            onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(-6deg) rotateY(25deg)'"
+            onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
           >
             <img 
               src={mobileScreenshot} 
@@ -88,9 +65,9 @@ const { title, link, repositoryLink, technologies, desktopScreenshot, mobileScre
               loading="lazy"
             />
           </div>
-        </div>
-      )}
-    </>
+        )}
+      </div>
+    </div>
   )}
   
   <div class="grid gap-y-4">

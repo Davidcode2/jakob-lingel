@@ -1,5 +1,62 @@
 ---
 import ProjectCard from "../projectCard.astro";
+
+const projects = [
+  {
+    title: "Immoly.io",
+    link: "https://immoly.io",
+    technologies: ["Next.js"],
+    desktopScreenshot: "/screenshots/desktop/immoly-io.png",
+    mobileScreenshot: "/screenshots/mobile/immoly-io.png",
+    description: "visual mortgage calculator with multiple color schemes"
+  },
+  {
+    title: "Schluesselmomente",
+    link: "https://schluesselmomente-freiburg.de",
+    technologies: ["HTML", "Tailwindcss", "php"],
+    desktopScreenshot: "/screenshots/desktop/schluesselmomente-freiburg-de.png",
+    mobileScreenshot: "/screenshots/mobile/schluesselmomente-freiburg-de.png",
+    description: "website for local coaching business"
+  },
+  {
+    title: "Mimis-Kreativstudio",
+    link: "https://mimis-kreativstudio.de",
+    technologies: ["Astro", "Tailwindcss", "Resend"],
+    desktopScreenshot: "/screenshots/desktop/mimis-kreativstudio-de.png",
+    mobileScreenshot: "/screenshots/mobile/mimis-kreativstudio-de.png",
+    description: "floral design studio website with elegant styling"
+  },
+  {
+    title: "Business-Website",
+    link: "https://jakob-lingel.dev",
+    technologies: ["Astro", "React", "Three.js", "Tailwindcss"],
+    desktopScreenshot: "/screenshots/desktop/jakob-lingel-dev.png",
+    mobileScreenshot: "/screenshots/mobile/jakob-lingel-dev.png",
+    description: "personal portfolio website with 3D elements"
+  },
+  {
+    title: "Alemazung-Site",
+    link: "https://alemazung.de",
+    technologies: ["Next.js", "Strapi", "Tailwindcss"],
+    desktopScreenshot: "/screenshots/desktop/alemazung-de.png",
+    mobileScreenshot: "/screenshots/mobile/alemazung-de.png",
+    description: "multilingual website for a mayor's office"
+  },
+  {
+    title: "Blog",
+    link: "https://blog.jakob-lingel.dev",
+    technologies: ["11ty", "Tailwindcss"],
+    desktopScreenshot: "/screenshots/desktop/blog-jakob-lingel-dev.png",
+    mobileScreenshot: "/screenshots/mobile/blog-jakob-lingel-dev.png",
+    description: "personal blog built with 11ty"
+  },
+  {
+    title: "Teachly.store",
+    link: "https://app.teachly.store",
+    technologies: ["React", "Typescript", "Nest.js"],
+    description: "platform for browsing, sharing, buying and selling educational resources"
+  }
+];
 ---
 
 <div>
@@ -10,83 +67,54 @@ import ProjectCard from "../projectCard.astro";
     <div>
       <div class="h-12 lg:h-24 border-b"></div>
       <div class="mx-auto grid lg:grid-cols-[2fr_3fr_2fr]">
-        <h2
-          class="font-michroma italic text-2xl sm:text-5xl uppercase"
-        >
-          Projects
-        </h2>
-        <div>
-          <div>
-            <ProjectCard
-              title="Immoly.io"
-              link="https://immoly.io"
-              technologies={["Next.js"]}
-              desktopScreenshot="/screenshots/desktop/immoly-io.png"
-              mobileScreenshot="/screenshots/mobile/immoly-io.png"
-            >
-              visual mortgage calculator with multiple color schemes
-            </ProjectCard>
-            <div class="schraffiert border h-6 flex"></div>
+        {/* Left Column - Title + Desktop Screenshots */}
+        <div class="hidden lg:flex lg:flex-col lg:gap-8">
+          <h2 class="font-michroma italic text-2xl sm:text-5xl uppercase">
+            Projects
+          </h2>
+          {/* Desktop Screenshots */}
+          <div class="flex flex-col gap-4">
+            {projects.filter(p => p.desktopScreenshot).map(project => (
+              <div class="w-full perspective-1000">
+                <div 
+                  class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
+                  style="transform: perspective(1000px) rotateX(8deg) rotateZ(4deg) rotateY(-15deg); transform-style: preserve-3d;"
+                  onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
+                  onmouseleave="this.style.transform='perspective(1000px) rotateX(8deg) rotateZ(4deg) rotateY(-15deg)'"
+                >
+                  <img 
+                    src={project.desktopScreenshot} 
+                    alt={`${project.title} desktop screenshot`}
+                    class="w-full h-auto object-cover object-top"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-          <ProjectCard
-            title="Schluesselmomente"
-            link="https://schluesselmomente-freiburg.de"
-            technologies={["HTML", "Tailwindcss", "php"]}
-            desktopScreenshot="/screenshots/desktop/schluesselmomente-freiburg-de.png"
-            mobileScreenshot="/screenshots/mobile/schluesselmomente-freiburg-de.png"
-          >
-            website for local coaching business
-          </ProjectCard>
-          <div class="schraffiert border h-6 flex"></div>
-          <ProjectCard
-            title="Mimis-Kreativstudio"
-            link="https://mimis-kreativstudio.de"
-            technologies={["Astro", "Tailwindcss", "Resend"]}
-            desktopScreenshot="/screenshots/desktop/mimis-kreativstudio-de.png"
-            mobileScreenshot="/screenshots/mobile/mimis-kreativstudio-de.png"
-          >
-            floral design studio website with elegant styling
-          </ProjectCard>
-          <div class="schraffiert border h-6 flex"></div>
-          <ProjectCard
-            title="Business-Website"
-            link="https://jakob-lingel.dev"
-            technologies={["Astro", "React", "Three.js", "Tailwindcss"]}
-            desktopScreenshot="/screenshots/desktop/jakob-lingel-dev.png"
-            mobileScreenshot="/screenshots/mobile/jakob-lingel-dev.png"
-          >
-            personal portfolio website with 3D elements
-          </ProjectCard>
-          <div class="schraffiert border h-6 flex"></div>
-          <ProjectCard
-            title="Alemazung-Site"
-            link="https://alemazung.de"
-            technologies={["Next.js", "Strapi", "Tailwindcss"]}
-            desktopScreenshot="/screenshots/desktop/alemazung-de.png"
-            mobileScreenshot="/screenshots/mobile/alemazung-de.png"
-          >
-            multilingual website for a mayor's office
-          </ProjectCard>
-          <div class="schraffiert border h-6 flex"></div>
-          <ProjectCard
-            title="Blog"
-            link="https://blog.jakob-lingel.dev"
-            technologies={["11ty", "Tailwindcss"]}
-            desktopScreenshot="/screenshots/desktop/blog-jakob-lingel-dev.png"
-            mobileScreenshot="/screenshots/mobile/blog-jakob-lingel-dev.png"
-          >
-            personal blog built with 11ty
-          </ProjectCard>
-          <div class="schraffiert border h-6 flex"></div>
-          <ProjectCard
-            title="Teachly.store"
-            link="https://app.teachly.store"
-            technologies={["React", "Typescript", "Nest.js"]}
-          >
-            platform for browsing, sharing, buying and selling educational
-            resources
-          </ProjectCard>
         </div>
+        
+        {/* Middle Column - Project Cards */}
+        <div>
+          {projects.map((project, index) => (
+            <>
+              <ProjectCard
+                title={project.title}
+                link={project.link}
+                technologies={project.technologies}
+                mobileScreenshot={project.mobileScreenshot}
+              >
+                {project.description}
+              </ProjectCard>
+              {index < projects.length - 1 && (
+                <div class="schraffiert border h-6 flex"></div>
+              )}
+            </>
+          ))}
+        </div>
+        
+        {/* Right Column - Empty */}
+        <div></div>
       </div>
       <div class="h-12 lg:h-24 border-t"></div>
     </div>
