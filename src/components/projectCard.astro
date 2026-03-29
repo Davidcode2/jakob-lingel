@@ -53,9 +53,9 @@ const { title, link, repositoryLink, technologies, desktopScreenshot, mobileScre
       </div>
 
       {/* Desktop Layout - Desktop on left, Mobile on right */}
-      {/* Desktop Screenshot - positioned on left */}
+      {/* Desktop Screenshot - positioned on left, LARGE */}
       {desktopScreenshot && (
-        <div class="hidden lg:block lg:absolute lg:-left-40 xl:-left-48 lg:top-1/2 lg:-translate-y-1/2 lg:w-36 xl:w-44 z-10 perspective-1000">
+        <div class="hidden lg:block lg:absolute lg:-left-64 xl:-left-80 lg:top-1/2 lg:-translate-y-1/2 lg:w-72 xl:w-96 z-10 perspective-1000">
           <div 
             class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
             style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
@@ -72,9 +72,9 @@ const { title, link, repositoryLink, technologies, desktopScreenshot, mobileScre
         </div>
       )}
 
-      {/* Mobile Screenshot - positioned on right */}
+      {/* Mobile Screenshot - positioned on right, LARGE */}
       {mobileScreenshot && (
-        <div class="hidden lg:block lg:absolute lg:-right-32 xl:-right-40 lg:top-1/2 lg:-translate-y-1/2 lg:w-24 xl:w-28 z-10 perspective-1000">
+        <div class="hidden lg:block lg:absolute lg:-right-56 xl:-right-72 lg:top-1/2 lg:-translate-y-1/2 lg:w-48 xl:w-64 z-10 perspective-1000">
           <div 
             class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
             style="transform: perspective(1000px) rotateX(12deg) rotateZ(-6deg) rotateY(25deg); transform-style: preserve-3d;"
