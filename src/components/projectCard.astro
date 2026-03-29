@@ -53,9 +53,9 @@ const { title, link, repositoryLink, technologies, desktopScreenshot, mobileScre
       </div>
 
       {/* Desktop Layout - Desktop on left, Mobile on right */}
-      {/* Desktop Screenshot - positioned on RIGHT, behind content */}
+      {/* Desktop Screenshot - positioned on LEFT, behind content */}
       {desktopScreenshot && (
-        <div class="hidden lg:block lg:absolute lg:right-12 xl:right-20 lg:top-1/2 lg:-translate-y-1/2 lg:w-72 xl:w-96 -z-10 perspective-1000">
+        <div class="hidden lg:block lg:absolute lg:-left-80 xl:-left-96 lg:top-1/2 lg:-translate-y-1/2 lg:w-72 xl:w-96 -z-10 perspective-1000">
           <div 
             class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
             style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
