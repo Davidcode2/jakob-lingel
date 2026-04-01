@@ -10,7 +10,7 @@ interface Props {
 
 const { title, link, repositoryLink, technologies, desktopScreenshot, mobileScreenshot } = Astro.props;
 ---
-<div class="relative py-10 flex-1 lg:border-x flex flex-col bg-inherit">
+<div class="relative py-10 flex-1 lg:border-x flex flex-col bg-[var(--color-background)]">
   {/* Mobile Screenshot - positioned on right, IN FRONT of content */}
   {mobileScreenshot && (
     <div class="hidden lg:block lg:absolute lg:-right-32 xl:-right-48 lg:top-1/2 lg:-translate-y-1/2 lg:w-48 xl:w-64 z-20 perspective-1000">

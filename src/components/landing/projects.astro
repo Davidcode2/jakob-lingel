@@ -69,7 +69,7 @@ const projects = [
 
 <div>
   <div
-    class="grid border-t grid-cols-[50px_1fr] sm:grid-cols-[50px_1fr_50px] lg:grid-cols-[100px_1fr_100px]"
+    class="grid border-t grid-cols-[50px_1fr] sm:grid-cols-[50px_1fr_50px] lg:grid-cols-[100px_1fr_100px] bg-[var(--color-background)]"
   >
     <div class="border-r"></div>
     <div>
@@ -84,13 +84,13 @@ const projects = [
           <div class="flex flex-col gap-4">
             {projects.filter(p => p.desktopScreenshot).map(project => (
               <div class="w-full perspective-1000">
-                <div 
-                  class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
-                  style="transform: perspective(1000px) rotateX(8deg) rotateZ(4deg) rotateY(-15deg); transform-style: preserve-3d;"
-                  onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
-                  onmouseleave="this.style.transform='perspective(1000px) rotateX(8deg) rotateZ(4deg) rotateY(-15deg)'"
-                >
-                  <img 
+                <div
+class="
+    w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20
+    [transform-style:preserve-3d] 
+    [transform:perspective(1000px)_rotateX(8deg)_rotateZ(-4deg)_rotateY(15deg)_translateX(20px)]
+    hover:[transform:perspective(1000px)_rotateX(0deg)_rotateZ(0deg)_rotateY(0deg)_translateX(-30px)] hover:scale-110
+    ">                  <img 
                     src={project.desktopScreenshot} 
                     alt={`${project.title} desktop screenshot`}
                     class="w-full h-auto object-cover object-top"
@@ -103,9 +103,9 @@ const projects = [
         </div>
         
         {/* Middle Column - Project Cards */}
-        <div>
+        <div class="z-30">
           {projects.map((project, index) => (
-            <>
+            <div class="z-20">
               <ProjectCard
                 title={project.title}
                 link={project.link}
@@ -118,12 +118,31 @@ const projects = [
               {index < projects.length - 1 && (
                 <div class="schraffiert border h-6 flex"></div>
               )}
-            </>
+            </div>
           ))}
         </div>
         
         {/* Right Column - Empty */}
-        <div></div>
+        <div>
+          <!--          <div class="flex flex-col gap-4">
+            {projects.filter(p => p.mobileScreenshot).map(project => (
+              <div 
+                class="w-60 -translate-y-40 transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
+                style="transform: perspective(1000px) rotateX(12deg) rotateZ(-6deg) rotateY(25deg); transform-style: preserve-3d;"
+                onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
+                onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(-6deg) rotateY(25deg)'"
+              >
+                <img 
+                  src={project.mobileScreenshot} 
+                  alt={`${project.title} desktop screenshot`}
+                  class="object-cover object-top"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+          -->
+        </div>
       </div>
       <div class="h-12 lg:h-24 border-t"></div>
     </div>
