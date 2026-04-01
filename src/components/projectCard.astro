@@ -24,7 +24,7 @@ const {
 } = Astro.props;
 ---
 
-<div class="lg:grid lg:grid-cols-[2fr_3fr_2fr] group">
+<div class="lg:grid lg:grid-cols-[2fr_3fr_2fr] group ">
   {
     index === 0 && (
       <>
@@ -35,7 +35,7 @@ const {
             </h2>
           </div>
         </div>
-        <div class="border-x lg:min-w-[450px]" />
+        <div class="border-x lg:min-w-[450px] z-30 bg-[var(--color-background)]" />
       </>
     )
   }
