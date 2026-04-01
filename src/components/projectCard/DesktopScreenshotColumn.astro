@@ -11,15 +11,15 @@ const { title, desktopScreenshot } = Astro.props;
   <div class="hidden row-start-1 lg:flex items-center justify-center p-4">
     <div class="w-full perspective-1000">
       <div
-        class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
-        style="transform: perspective(1000px) rotateX(8deg) rotateZ(-4deg) rotateY(15deg); transform-style: preserve-3d;"
-        onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
-        onmouseleave="this.style.transform='perspective(1000px) rotateX(8deg) rotateZ(-4deg) rotateY(15deg)'"
+        class="w-full overflow-hidden rounded-lg border-2 border-white/20 shadow-2xl transition-all duration-500 ease-out 
+               transform-3d perspective-1000 
+               rotate-x-[14deg] rotate-y-[20deg] rotate-z-[2deg] translate-x-14
+               group-hover:rotate-x-0 group-hover:rotate-y-0 group-hover:rotate-z-[1deg] hover:rotate-z-0 group-hover:scale-125 group-hover:-translate-x-12"
       >
         <img
           src={desktopScreenshot}
           alt={`${title} desktop screenshot`}
-          class="w-full h-auto object-cover object-top"
+          class="h-auto w-full object-cover object-top"
           loading="lazy"
         />
       </div>
