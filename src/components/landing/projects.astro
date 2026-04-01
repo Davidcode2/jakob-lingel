@@ -3,6 +3,14 @@ import ProjectCard from "../projectCard.astro";
 
 const projects = [
   {
+    title: "ProjectTitle",
+    link: "-",
+    technologies: ["-"],
+    desktopScreenshot: "-",
+    mobileScreenshot: "-",
+    description: "-"
+  },
+  {
     title: "Immoly.io",
     link: "https://immoly.io",
     technologies: ["Next.js"],
@@ -74,76 +82,34 @@ const projects = [
     <div class="border-r"></div>
     <div>
       <div class="h-12 lg:h-24 border-b"></div>
-      <div class="mx-auto grid lg:grid-cols-[2fr_3fr_2fr]">
-        {/* Left Column - Title + Desktop Screenshots */}
-        <div class="hidden lg:flex lg:flex-col lg:gap-8">
-          <h2 class="font-michroma italic text-2xl sm:text-5xl uppercase">
-            Projects
-          </h2>
-          {/* Desktop Screenshots */}
-          <div class="flex flex-col gap-4">
-            {projects.filter(p => p.desktopScreenshot).map(project => (
-              <div class="w-full perspective-1000">
-                <div
-class="
-    w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20
-    [transform-style:preserve-3d] 
-    [transform:perspective(1000px)_rotateX(8deg)_rotateZ(-4deg)_rotateY(15deg)_translateX(20px)]
-    hover:[transform:perspective(1000px)_rotateX(0deg)_rotateZ(0deg)_rotateY(0deg)_translateX(-30px)] hover:scale-110
-    ">                  <img 
-                    src={project.desktopScreenshot} 
-                    alt={`${project.title} desktop screenshot`}
-                    class="w-full h-auto object-cover object-top"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        {/* Middle Column - Project Cards */}
-        <div class="z-30">
-          {projects.map((project, index) => (
-            <div class="z-20">
-              <ProjectCard
-                title={project.title}
-                link={project.link}
-                technologies={project.technologies}
-                desktopScreenshot={project.desktopScreenshot}
-                mobileScreenshot={project.mobileScreenshot}
-              >
-                {project.description}
-              </ProjectCard>
-              {index < projects.length - 1 && (
-                <div class="schraffiert border h-6 flex"></div>
-              )}
-            </div>
-          ))}
-        </div>
-        
-        {/* Right Column - Empty */}
-        <div>
-          <!--          <div class="flex flex-col gap-4">
-            {projects.filter(p => p.mobileScreenshot).map(project => (
-              <div 
-                class="w-60 -translate-y-40 transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
-                style="transform: perspective(1000px) rotateX(12deg) rotateZ(-6deg) rotateY(25deg); transform-style: preserve-3d;"
-                onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
-                onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(-6deg) rotateY(25deg)'"
-              >
-                <img 
-                  src={project.mobileScreenshot} 
-                  alt={`${project.title} desktop screenshot`}
-                  class="object-cover object-top"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-          -->
-        </div>
+      
+      {/* Projects Title */}
+      <div class="lg:hidden">
+        <h2 class="font-michroma italic text-2xl sm:text-5xl uppercase lg:px-10 mb-8">
+          Projects
+        </h2>
       </div>
+      
+      {/* Project Cards */}
+      <div class="z-30">
+        {projects.map((project, index) => (
+          <div class="z-20">
+
+            <ProjectCard
+              title={project.title}
+              link={project.link}
+              technologies={project.technologies}
+              desktopScreenshot={project.desktopScreenshot}
+              mobileScreenshot={project.mobileScreenshot}
+              number_of_projects={projects.length}
+              index={index}
+            >
+              {project.description}
+            </ProjectCard>
+          </div>
+        ))}
+      </div>
+      
       <div class="h-12 lg:h-24 border-t"></div>
     </div>
     <div class="max-sm:hidden border-l"></div>
