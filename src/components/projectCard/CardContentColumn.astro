@@ -1,0 +1,57 @@
+---
+import ScreenshotsForSmallScreens from './ScreenshotsForSmallScreens.astro';
+
+interface Props {
+  title: string;
+  link: string;
+  technologies: string[];
+  desktopScreenshot?: string;
+  mobileScreenshot?: string;
+  number_of_projects: number;
+  index: number;
+}
+
+const {
+  title,
+  link,
+  technologies,
+  desktopScreenshot,
+  mobileScreenshot,
+  number_of_projects,
+  index,
+} = Astro.props;
+---
+
+<div
+  class="relative flex-1 lg:border-x flex flex-col bg-[var(--color-background)]"
+>
+  <ScreenshotsForSmallScreens
+    desktopScreenshot={desktopScreenshot}
+    mobileScreenshot={mobileScreenshot}
+    title={title}
+  />
+
+  <div class="grid my-auto gap-y-6">
+    <h4 class="text-2xl lg:text-4xl px-6 lg:px-10">{title}</h4>
+    <div class="px-6 lg:px-10">
+      <slot />
+    </div>
+    <a class="px-6 lg:px-10 break-all" href={link} target="_blank">
+      {link}
+    </a>
+    <div class="grid grid-cols-2 mx-6 lg:mx-10 border-y divide-y">
+      {technologies.map((tech) => <div class="p-2">{tech}</div>)}
+    </div>
+  </div>
+
+  {
+    index !== 0 && index < number_of_projects - 1 && (
+      <div class="schraffiert border h-6 flex my-10" />
+    )
+  }
+  {
+    index == number_of_projects - 1 && (
+      <div class="mb-10" />
+    )
+  }
+</div>

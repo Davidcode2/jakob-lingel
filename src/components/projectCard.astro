@@ -1,145 +1,67 @@
 ---
+import DesktopScreenshotColumn from "./projectCard/DesktopScreenshotColumn.astro";
+import CardContentColumn from "./projectCard/CardContentColumn.astro";
+import MobileScreenshotColumn from "./projectCard/MobileScreenshotColumn.astro";
+
 interface Props {
   title: string;
   link: string;
-  repositoryLink?: string;
   technologies: string[];
   desktopScreenshot?: string;
   mobileScreenshot?: string;
-  number_of_projects: number; // Added missing type
-  index: number;              // Added missing type
+  number_of_projects: number;
+  index: number;
 }
 
-const { 
-  title, 
-  link, 
-  repositoryLink, 
-  technologies, 
-  desktopScreenshot, 
-  mobileScreenshot, 
-  number_of_projects, 
-  index 
+const {
+  title,
+  link,
+  technologies,
+  desktopScreenshot,
+  mobileScreenshot,
+  number_of_projects,
+  index,
 } = Astro.props;
 ---
 
 <div class="lg:grid lg:grid-cols-[2fr_3fr_2fr]">
-  {/* Logic for the "Projects" Header (First Item Only) */}
-  {index === 0 && (
-    <>
-      <div class="hidden lg:block col-start-1">
-        <div>
-          <h2 class="font-michroma italic text-2xl sm:text-5xl uppercase mb-8">
-            Projects
-          </h2>
-        </div>
-      </div>
-      <div class="border-x"></div>
-    </>
-  )}
-
-  {/* Content for items where index is not 0 */}
-  {index !== 0 && (
-    <>
-      {/* Column 1 - Desktop Screenshot (Large screens only) */}
-      {desktopScreenshot && (
-        <div class="hidden row-start-1 lg:flex items-center justify-center p-4">
-          <div class="w-full perspective-1000">
-            <div
-              class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
-              style="transform: perspective(1000px) rotateX(8deg) rotateZ(-4deg) rotateY(15deg); transform-style: preserve-3d;"
-              onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
-              onmouseleave="this.style.transform='perspective(1000px) rotateX(8deg) rotateZ(-4deg) rotateY(15deg)'"
-            >
-              <img
-                src={desktopScreenshot}
-                alt={`${title} desktop screenshot`}
-                class="w-full h-auto object-cover object-top"
-                loading="lazy"
-              />
-            </div>
+  {
+    index === 0 && (
+      <>
+        <div class="hidden lg:block col-start-1">
+          <div>
+            <h2 class="font-michroma italic text-2xl sm:text-5xl uppercase mb-8">
+              Projects
+            </h2>
           </div>
         </div>
-      )}
+        <div class="border-x" />
+      </>
+    )
+  }
 
-      {/* Column 2 - Card Content */}
-      <div class="relative flex-1 lg:border-x flex flex-col bg-[var(--color-background)]">
-        {(desktopScreenshot || mobileScreenshot) && (
-          <div class="lg:hidden px-6 mb-6">
-            <div class="relative h-48 perspective-1000">
-              {desktopScreenshot && (
-                <div
-                  class="absolute w-full sm:max-w-[80%] md:max-w-[70%] transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
-                  style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
-                  onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
-                  onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
-                >
-                  <img
-                    src={desktopScreenshot}
-                    alt={`${title} desktop screenshot`}
-                    class="w-full h-auto object-cover object-top"
-                    loading="lazy"
-                  />
-                </div>
-              )}
-              {mobileScreenshot && (
-                <div
-                  class={`absolute shadow-2xl rounded-lg overflow-hidden border-2 border-white/20 ${desktopScreenshot ? 'w-1/2 sm:w-[40%] md:w-[35%] -bottom-4 -right-4' : 'w-full sm:max-w-[80%] md:max-w-[70%]'}`}
-                  style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
-                  onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
-                  onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
-                >
-                  <img
-                    src={mobileScreenshot}
-                    alt={`${title} mobile screenshot`}
-                    class="w-full h-auto object-cover object-top"
-                    loading="lazy"
-                  />
-                </div>
-              )}
-            </div>
-          </div>
-        )}
+  {
+    index !== 0 && (
+      <>
+        <DesktopScreenshotColumn
+          title={title}
+          desktopScreenshot={desktopScreenshot}
+        />
 
-        <div class="grid my-auto gap-y-4">
-          <h4 class="text-2xl lg:text-4xl px-6 lg:px-10">{title}</h4>
-          <div class="px-6 lg:px-10">
+        <div class="col-start-2">
+          <CardContentColumn
+            title={title}
+            link={link}
+            technologies={technologies}
+            desktopScreenshot={desktopScreenshot}
+            mobileScreenshot={mobileScreenshot}
+            number_of_projects={number_of_projects}
+            index={index}
+          >
             <slot />
-          </div>
-          <a class="px-6 lg:px-10 break-all" href={link} target="_blank">
-            {link}
-          </a>
-          <div class="grid grid-cols-2 mx-6 lg:mx-10 border-y divide-y">
-            {technologies.map((tech) => (
-              <div class="p-2">{tech}</div>
-            ))}
-          </div>
+          </CardContentColumn>
         </div>
-
-        {index !== 0 && index < number_of_projects - 1 && (
-          <div class="schraffiert border h-6 flex" />
-        )}
-      </div>
-
-      {/* Column 3 - Mobile Screenshot (Large screens only) */}
-      {mobileScreenshot && (
-        <div class="hidden lg:flex items-center justify-center p-4">
-          <div class="w-48 xl:w-64 perspective-1000">
-            <div
-              class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
-              style="transform: perspective(1000px) rotateX(12deg) rotateZ(-6deg) rotateY(25deg); transform-style: preserve-3d;"
-              onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
-              onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(-6deg) rotateY(25deg)'"
-            >
-              <img
-                src={mobileScreenshot}
-                alt={`${title} mobile screenshot`}
-                class="w-full h-auto object-cover object-top"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  )}
+      </>
+    )
+  }
 </div>

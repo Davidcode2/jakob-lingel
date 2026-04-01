@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  desktopScreenshot?: string;
+}
+
+const { title, desktopScreenshot } = Astro.props;
+---
+
+{desktopScreenshot && (
+  <div class="hidden row-start-1 lg:flex items-center justify-center p-4">
+    <div class="w-full perspective-1000">
+      <div
+        class="w-full transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
+        style="transform: perspective(1000px) rotateX(8deg) rotateZ(-4deg) rotateY(15deg); transform-style: preserve-3d;"
+        onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
+        onmouseleave="this.style.transform='perspective(1000px) rotateX(8deg) rotateZ(-4deg) rotateY(15deg)'"
+      >
+        <img
+          src={desktopScreenshot}
+          alt={`${title} desktop screenshot`}
+          class="w-full h-auto object-cover object-top"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+)}

@@ -8,7 +8,7 @@ const projects = [
     technologies: ["-"],
     desktopScreenshot: "-",
     mobileScreenshot: "-",
-    description: "-"
+    description: "-",
   },
   {
     title: "Immoly.io",
@@ -16,7 +16,7 @@ const projects = [
     technologies: ["Next.js"],
     desktopScreenshot: "/screenshots/desktop/immoly-io.png",
     mobileScreenshot: "/screenshots/mobile/immoly-io.png",
-    description: "visual mortgage calculator with multiple color schemes"
+    description: "visual mortgage calculator with multiple color schemes",
   },
   {
     title: "Schluesselmomente",
@@ -24,7 +24,7 @@ const projects = [
     technologies: ["HTML", "Tailwindcss", "php"],
     desktopScreenshot: "/screenshots/desktop/schluesselmomente-freiburg-de.png",
     mobileScreenshot: "/screenshots/mobile/schluesselmomente-freiburg-de.png",
-    description: "website for local coaching business"
+    description: "website for local coaching business",
   },
   {
     title: "Mimis-Kreativstudio",
@@ -32,7 +32,7 @@ const projects = [
     technologies: ["Astro", "Tailwindcss", "Resend"],
     desktopScreenshot: "/screenshots/desktop/mimis-kreativstudio-de.png",
     mobileScreenshot: "/screenshots/mobile/mimis-kreativstudio-de.png",
-    description: "floral design studio website with elegant styling"
+    description: "floral design studio website with elegant styling",
   },
   {
     title: "Business-Website",
@@ -40,7 +40,7 @@ const projects = [
     technologies: ["Astro", "React", "Three.js", "Tailwindcss"],
     desktopScreenshot: "/screenshots/desktop/jakob-lingel-dev.png",
     mobileScreenshot: "/screenshots/mobile/jakob-lingel-dev.png",
-    description: "personal portfolio website with 3D elements"
+    description: "personal portfolio website with 3D elements",
   },
   {
     title: "Alemazung-Site",
@@ -48,7 +48,7 @@ const projects = [
     technologies: ["Next.js", "Strapi", "Tailwindcss"],
     desktopScreenshot: "/screenshots/desktop/alemazung-de.png",
     mobileScreenshot: "/screenshots/mobile/alemazung-de.png",
-    description: "multilingual website for a mayor's office"
+    description: "multilingual website for a mayor's office",
   },
   {
     title: "Blog",
@@ -56,7 +56,7 @@ const projects = [
     technologies: ["11ty", "Tailwindcss"],
     desktopScreenshot: "/screenshots/desktop/blog-jakob-lingel-dev.png",
     mobileScreenshot: "/screenshots/mobile/blog-jakob-lingel-dev.png",
-    description: "personal blog built with 11ty"
+    description: "personal blog built with 11ty",
   },
   {
     title: "telemetry.jakob-lingel.dev",
@@ -64,14 +64,15 @@ const projects = [
     technologies: ["Rust", "Kubernetes metrics monitor", "React"],
     desktopScreenshot: "/screenshots/desktop/telemetry-jakob-lingel-dev.png",
     mobileScreenshot: "/screenshots/mobile/telemetry-jakob-lingel-dev.png",
-    description: "kubernetes monitoring tool written in rust"
+    description: "kubernetes monitoring tool written in rust",
   },
   {
     title: "Teachly.store",
     link: "https://app.teachly.store",
     technologies: ["React", "Typescript", "Nest.js", "Keycloak"],
-    description: "platform for browsing, sharing, buying and selling educational resources"
-  }
+    description:
+      "platform for browsing, sharing, buying and selling educational resources",
+  },
 ];
 ---
 
@@ -82,34 +83,37 @@ const projects = [
     <div class="border-r"></div>
     <div>
       <div class="h-12 lg:h-24 border-b"></div>
-      
+
       {/* Projects Title */}
       <div class="lg:hidden">
-        <h2 class="font-michroma italic text-2xl sm:text-5xl uppercase lg:px-10 mb-8">
+        <h2
+          class="font-michroma italic text-2xl sm:text-5xl uppercase lg:px-10 mb-8"
+        >
           Projects
         </h2>
       </div>
-      
+
       {/* Project Cards */}
       <div class="z-30">
-        {projects.map((project, index) => (
-          <div class="z-20">
-
-            <ProjectCard
-              title={project.title}
-              link={project.link}
-              technologies={project.technologies}
-              desktopScreenshot={project.desktopScreenshot}
-              mobileScreenshot={project.mobileScreenshot}
-              number_of_projects={projects.length}
-              index={index}
-            >
-              {project.description}
-            </ProjectCard>
-          </div>
-        ))}
+        {
+          projects.map((project, index) => (
+            <div class="z-20 grid">
+              <ProjectCard
+                title={project.title}
+                link={project.link}
+                technologies={project.technologies}
+                desktopScreenshot={project.desktopScreenshot}
+                mobileScreenshot={project.mobileScreenshot}
+                number_of_projects={projects.length}
+                index={index}
+              >
+                {project.description}
+              </ProjectCard>
+            </div>
+          ))
+        }
       </div>
-      
+
       <div class="h-12 lg:h-24 border-t"></div>
     </div>
     <div class="max-sm:hidden border-l"></div>
