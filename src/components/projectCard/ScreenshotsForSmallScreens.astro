@@ -15,7 +15,7 @@ const { title, desktopScreenshot, mobileScreenshot } = Astro.props;
         <div class="relative h-48 perspective-1000">
           {desktopScreenshot && (
             <div
-              class="absolute w-full sm:max-w-[80%] md:max-w-[70%] transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
+              class="absolute max-w-[90%] sm:max-w-[65%] md:max-w-[60%] sm:-translate-y-16 sm:translate-x-20 transition-all duration-500 ease-out shadow-2xl rounded-lg overflow-hidden border-2 border-white/20"
               style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
               onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
               onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
@@ -30,7 +30,7 @@ const { title, desktopScreenshot, mobileScreenshot } = Astro.props;
           )}
           {mobileScreenshot && (
             <div
-              class={`absolute shadow-2xl rounded-lg overflow-hidden border-2 border-white/20 ${desktopScreenshot ? "w-1/2 sm:w-[40%] md:w-[35%] -bottom-4 -right-4" : "w-full sm:max-w-[80%] md:max-w-[70%]"}`}
+              class={`absolute shadow-2xl max-w-[60%] sm:max-w-[55%] md:max-w-[40%] sm:translate-y-8 rounded-lg overflow-hidden border-2  transition-all duration-500 border-white/20 ${desktopScreenshot ? "w-1/2 sm:w-[40%] md:w-[35%] -bottom-4 -right-4" : "w-full sm:max-w-[80%] md:max-w-[70%]"}`}
               style="transform: perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg); transform-style: preserve-3d;"
               onmouseenter="this.style.transform='perspective(1000px) rotateX(0deg) rotateZ(0deg) rotateY(0deg)'"
               onmouseleave="this.style.transform='perspective(1000px) rotateX(12deg) rotateZ(6deg) rotateY(-25deg)'"
