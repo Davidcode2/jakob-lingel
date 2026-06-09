@@ -38,6 +38,7 @@ export default defineConfig({
           "nextdotjs",
           "strapi",
           "terraform",
+          "opencode"
         ],
       },
     }

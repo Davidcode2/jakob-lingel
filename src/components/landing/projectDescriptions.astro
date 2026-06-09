@@ -121,22 +121,28 @@ import "../../styles/mouseTracker.css";
     that choice.</DescriptionBlock
   >
   <DescriptionBlock iconName="simple-icons:astro"
-    >This led me to the present, where I am using <a
+    >This led me to this portfolio page, where I am using <a
       class="external-link"
       href="https://astro.build"
       target="_blank">Astro</a
-    > to build this site.</DescriptionBlock
+    ></DescriptionBlock
   >
+  <DescriptionBlock iconName="simple-icons:opencode"
+    >gen AI happened, and i built an <a
+      class="external-link"
+      href="https://schreinerei-app.jakob-lingel.dev"
+      target="_blank">ERP for carpentry businesses</a
+    >. It uses Rust as the backend - i barely know the syntax - but it works.
+  </DescriptionBlock>
+
+  <Icon
+    size={48}
+    name="lucide:move-up-right"
+    id="mouse-tracker"
+    class="pointer-events-none"
+  />
+
+  <script>
+    import { initMouseTracker } from "../../scripts/mouseTracker.js";
+  </script>
 </div>
-
-<Icon
-  size={48}
-  name="lucide:move-up-right"
-  id="mouse-tracker"
-  class="pointer-events-none"
-/>
-
-<script>
-  import { initMouseTracker } from "../../scripts/mouseTracker.js";
-</script>
-
