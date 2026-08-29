@@ -1,138 +1,169 @@
 ---
 import { Icon } from "astro-icon/components";
 import DescriptionBlock from "./DescriptionBlock.astro";
+import StorySection from "./StorySection.astro";
 import "../../styles/mouseTracker.css";
 ---
 
-<div class="grid">
-  <DescriptionBlock iconName="lucide:route">
-    Web development provides me with a creative outlet. I built my first website
-    for my mom's bookstore around the time I turned 20. It was a one-pager using <a
-      href="https://getbootstrap.com/"
-      class="external-link"
-      target="_blank">Bootstrap</a
-    >.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="lucide:sparkles">
-    Ever since, I've dreamed of becoming a full-stack developer. I started
-    working through <a
-      class="external-link py-5"
-      href="https://www.theodinproject.com"
-      target="_blank">The Odin Project</a
-    > to learn the basics.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="lucide:pencil-line">
-    Another chance for practice presented itself when my sister started a <a
-      class="py-5"
-      href="https://schluesselmomente-freiburg.de"
-      target="_blank">counseling business</a
-    >. I built her site using plain HTML and CSS, and used Tailwind CSS for the
-    first time.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="lucide:chart-no-axes-gantt">
-    Over the course of my computer science studies, I worked on several
-    projects. One was a tool to automatically grade handwritten exams; the
-    backend was built in Python using OpenCV for image processing, and I used
-    React for the frontend.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="simple-icons:angular">
-    On the side, I worked at Carl Zeiss IQS as a working student. There, I
-    contributed to a sensorics dashboard built in Angular. I also gained
-    experience working with data transfer using MQTT, WebSockets, and BLE.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="simple-icons:dotnet">
-    For my practical study semester, I worked at Bosch Manufacturing Solutions.
-    There, I built my first full-stack application from scratch. The app allowed
-    users to search for development projects and view status updates. Project
-    data was retrieved from MongoDB and Postgres databases. The frontend used
-    Angular, and the backend API was built in .NET with C#.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="lucide:view">
-    During my Bachelor's thesis, I created another full-stack application using
-    the same stack, this time at Carl Zeiss SMT. It was a report automation tool
-    that enabled easy visualization of measurement results fed in as CSV files.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="lucide:user-round">
-    To start my career, I joined Kärcher. I began as a developer in the B2B
-    eCommerce team and soon took on responsibility as the technical lead for a
-    distributed team.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="lucide:moon-star">
-    I continued to program on the side. My first project after graduation was a
-    full-stack application which I viewed as my personal capstone project: a
-    platform for sharing, browsing, and selling teaching materials. I used
-    NestJS for the backend, React for the frontend, and Keycloak as the identity
-    provider, hosting the app on DigitalOcean.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="simple-icons:github">
-    During that time, I refined my deployment workflow. GitHub Actions was used
-    to SSH code onto my VM and build Docker images there. All my apps ran on a
-    single DigitalOcean VM, using Docker Compose to organize services and Nginx
-    as a reverse proxy.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="simple-icons:eleventy">
-    After that project was finished, I built a personal <a
-      href="https://blog.jakob-lingel.dev"
-      target="_blank">blog</a
-    > using <a
-      class="external-link py-5"
-      href="https://11ty.dev"
-      target="_blank">11ty</a
-    >.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="simple-icons:nextdotjs">
-    My next project was a <a
-      class="py-5"
-      href="https://immo.jakob-lingel.dev"
-      target="_blank">mortgage calculator</a
-    > where I explored Next.js for the first time.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="simple-icons:terraform">
-    When my DigitalOcean VM reached capacity, I moved my projects over to
-    Hetzner. To do this efficiently, I defined all my infrastructure as code
-    using Terraform.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="simple-icons:kubernetes">
-    To level up my deployment game, I created a three-node Kubernetes cluster
-    using k3s. To keep everything as code, I used Ansible for the setup and
-    ArgoCD as my GitOps tool.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="lucide:book-lock">
-    Instead of SSH'ing code to my VMs, I started building images in the pipeline
-    and storing them in GHCR. Secrets are now securely fetched from AWS
-    Parameter Store.
-  </DescriptionBlock>
-  <DescriptionBlock iconName="lucide:flower"
-    >In preparation for freelance website building, I experimented with <a
-      class="external-link py-5"
-      href="https://ghost.org"
-      target="_blank">Ghost CMS</a
-    > and built a <a href="https://mimis-kreativstudio.de" target="_blank"
-      >PoC</a
-    >.</DescriptionBlock
+<div class="story-accordion" data-story-accordion>
+  <StorySection
+    number="00"
+    title="Start with the web"
+    description="First sites, fundamentals, and the urge to build"
+    open
   >
-  <DescriptionBlock iconName="simple-icons:strapi"
-    >That tool didn't quite fit my use case, so I tried Strapi instead. I added <a
-      class="external-link"
-      href="https://strapi.io"
-      target="_blank">Strapi</a
-    > as a backend to a previous project and built a site for a potential customer
-    using Next.js. However, after a critical CVE affected Next.js, I reconsidered
-    that choice.</DescriptionBlock
+    <DescriptionBlock iconName="lucide:route">
+      Web development provides me with a creative outlet. I built my first
+      website for my mom's bookstore around the time I turned 20. It was a
+      one-pager using <a
+        href="https://getbootstrap.com/"
+        class="external-link"
+        target="_blank">Bootstrap</a
+      >.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="lucide:sparkles">
+      Ever since, I've dreamed of becoming a full-stack developer. I started
+      working through <a
+        class="external-link py-5"
+        href="https://www.theodinproject.com"
+        target="_blank">The Odin Project</a
+      > to learn the basics.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="lucide:pencil-line">
+      Another chance for practice presented itself when my sister started a <a
+        class="py-5"
+        href="https://schluesselmomente-freiburg.de"
+        target="_blank">counseling business</a
+      >. I built her site using plain HTML and CSS, and used Tailwind CSS for
+      the first time.
+    </DescriptionBlock>
+  </StorySection>
+
+  <StorySection
+    number="01"
+    title="Learn by shipping"
+    description="Computer science, production teams, and technical responsibility"
   >
-  <DescriptionBlock iconName="simple-icons:astro"
-    >This led me to this portfolio page, where I am using <a
-      class="external-link"
-      href="https://astro.build"
-      target="_blank">Astro</a
-    ></DescriptionBlock
+    <DescriptionBlock iconName="lucide:chart-no-axes-gantt">
+      Over the course of my computer science studies, I worked on several
+      projects. One was a tool to automatically grade handwritten exams; the
+      backend was built in Python using OpenCV for image processing, and I used
+      React for the frontend.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="simple-icons:angular">
+      On the side, I worked at Carl Zeiss IQS as a working student. There, I
+      contributed to a sensorics dashboard built in Angular. I also gained
+      experience working with data transfer using MQTT, WebSockets, and BLE.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="simple-icons:dotnet">
+      For my practical study semester, I worked at Bosch Manufacturing
+      Solutions. There, I built my first full-stack application from scratch.
+      The app allowed users to search for development projects and view status
+      updates. Project data was retrieved from MongoDB and Postgres databases.
+      The frontend used Angular, and the backend API was built in .NET with C#.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="lucide:view">
+      During my Bachelor's thesis, I created another full-stack application
+      using the same stack, this time at Carl Zeiss SMT. It was a report
+      automation tool that enabled easy visualization of measurement results fed
+      in as CSV files.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="lucide:user-round">
+      To start my career, I joined Kärcher. I began as a developer in the B2B
+      eCommerce team and soon took on responsibility as the technical lead for a
+      distributed team.
+    </DescriptionBlock>
+  </StorySection>
+
+  <StorySection
+    number="02"
+    title="Build end to end"
+    description="Product platforms, deployment workflows, and deliberate experiments"
   >
-  <DescriptionBlock iconName="simple-icons:opencode"
-    >gen AI happened, and i built an <a
-      href="https://schreinerei-app.jakob-lingel.dev"
-      target="_blank">ERP for carpentry businesses</a
-    >. It uses Rust as the backend - i barely know the syntax - but it works.
-  </DescriptionBlock>
+    <DescriptionBlock iconName="lucide:moon-star">
+      I continued to program on the side. My first project after graduation was
+      a full-stack application which I viewed as my personal capstone project: a
+      platform for sharing, browsing, and selling teaching materials. I used
+      NestJS for the backend, React for the frontend, and Keycloak as the
+      identity provider, hosting the app on DigitalOcean.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="simple-icons:github">
+      During that time, I refined my deployment workflow. GitHub Actions was
+      used to SSH code onto my VM and build Docker images there. All my apps ran
+      on a single DigitalOcean VM, using Docker Compose to organize services and
+      Nginx as a reverse proxy.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="simple-icons:eleventy">
+      After that project was finished, I built a personal <a
+        href="https://blog.jakob-lingel.dev"
+        target="_blank">blog</a
+      > using <a
+        class="external-link py-5"
+        href="https://11ty.dev"
+        target="_blank">11ty</a
+      >.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="simple-icons:nextdotjs">
+      My next project was a <a
+        class="py-5"
+        href="https://immo.jakob-lingel.dev"
+        target="_blank">mortgage calculator</a
+      > where I explored Next.js for the first time.
+    </DescriptionBlock>
+  </StorySection>
+
+  <StorySection
+    number="03"
+    title="Own the stack"
+    description="Infrastructure as code, Kubernetes, and the current platform"
+  >
+    <DescriptionBlock iconName="simple-icons:terraform">
+      When my DigitalOcean VM reached capacity, I moved my projects over to
+      Hetzner. To do this efficiently, I defined all my infrastructure as code
+      using Terraform.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="simple-icons:kubernetes">
+      To level up my deployment game, I created a three-node Kubernetes cluster
+      using k3s. To keep everything as code, I used Ansible for the setup and
+      ArgoCD as my GitOps tool.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="lucide:book-lock">
+      Instead of SSH'ing code to my VMs, I started building images in the
+      pipeline and storing them in GHCR. Secrets are now securely fetched from
+      AWS Parameter Store.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="lucide:flower">
+      In preparation for freelance website building, I experimented with <a
+        class="external-link py-5"
+        href="https://ghost.org"
+        target="_blank">Ghost CMS</a
+      > and built a <a href="https://mimis-kreativstudio.de" target="_blank"
+        >PoC</a
+      >.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="simple-icons:strapi">
+      That tool didn't quite fit my use case, so I tried Strapi instead. I added <a
+        class="external-link"
+        href="https://strapi.io"
+        target="_blank">Strapi</a
+      > as a backend to a previous project and built a site for a potential customer
+      using Next.js. However, after a critical CVE affected Next.js, I reconsidered
+      that choice.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="simple-icons:astro">
+      This led me to this portfolio page, where I am using <a
+        class="external-link"
+        href="https://astro.build"
+        target="_blank">Astro</a
+      >.
+    </DescriptionBlock>
+    <DescriptionBlock iconName="simple-icons:opencode">
+      Gen AI happened, and I built an <a
+        href="https://schreinerei-app.jakob-lingel.dev"
+        target="_blank">ERP for carpentry businesses</a
+      >. It uses Rust as the backend — I barely know the syntax — but it works.
+    </DescriptionBlock>
+  </StorySection>
 
   <Icon
     size={48}
@@ -140,8 +171,36 @@ import "../../styles/mouseTracker.css";
     id="mouse-tracker"
     class="pointer-events-none"
   />
-
-  <script>
-    import { initMouseTracker } from "../../scripts/mouseTracker.js";
-  </script>
 </div>
+
+<script>
+  import "../../scripts/mouseTracker.js";
+
+  const accordions = document.querySelectorAll<HTMLElement>(
+    "[data-story-accordion]",
+  );
+
+  accordions.forEach((accordion) => {
+    const sections = Array.from(
+      accordion.querySelectorAll<HTMLDetailsElement>("details"),
+    );
+
+    sections.forEach((section) => {
+      const summary = section.querySelector("summary");
+
+      summary?.addEventListener("click", (event) => {
+        if (section.open && sections.filter((item) => item.open).length === 1) {
+          event.preventDefault();
+        }
+      });
+
+      section.addEventListener("toggle", () => {
+        if (!section.open) return;
+
+        sections.forEach((otherSection) => {
+          if (otherSection !== section) otherSection.open = false;
+        });
+      });
+    });
+  });
+</script>

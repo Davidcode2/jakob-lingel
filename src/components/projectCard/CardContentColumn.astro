@@ -1,5 +1,5 @@
 ---
-import ScreenshotsForSmallScreens from './ScreenshotsForSmallScreens.astro';
+import ScreenshotsForSmallScreens from "./ScreenshotsForSmallScreens.astro";
 
 interface Props {
   title: string;
@@ -45,13 +45,9 @@ const {
   </div>
 
   {
-    index !== 0 && index < number_of_projects - 1 && (
+    index < number_of_projects - 1 && (
       <div class="schraffiert border h-6 flex my-10" />
     )
   }
-  {
-    index == number_of_projects - 1 && (
-      <div class="mb-10" />
-    )
-  }
+  {index == number_of_projects - 1 && <div class="mb-10" />}
 </div>

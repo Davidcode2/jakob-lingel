@@ -24,51 +24,27 @@ const {
 } = Astro.props;
 ---
 
-<div class="lg:grid lg:grid-cols-[2fr_3fr_2fr] group ">
-  {
-    index === 0 && (
-      <>
-        <div class="hidden lg:block col-start-1 shrink">
-          <div>
-            <h2 class="font-michroma italic lg:text-2xl sm:text-5xl uppercase mb-8">
-              Projects
-            </h2>
-          </div>
-        </div>
-        <div class="border-x lg:min-w-[450px] z-30 bg-[var(--color-background)]" />
-      </>
-    )
-  }
+<div class="lg:grid lg:grid-cols-[2fr_3fr_2fr] group">
+  <DesktopScreenshotColumn
+    title={title}
+    desktopScreenshot={desktopScreenshot}
+  />
 
-  {
-    index !== 0 && (
-      <>
-        <DesktopScreenshotColumn
-          title={title}
-          desktopScreenshot={desktopScreenshot}
-        />
+  <div class="col-start-2">
+    <CardContentColumn
+      title={title}
+      link={link}
+      technologies={technologies}
+      desktopScreenshot={desktopScreenshot}
+      mobileScreenshot={mobileScreenshot}
+      number_of_projects={number_of_projects}
+      index={index}
+    >
+      <slot />
+    </CardContentColumn>
+  </div>
 
-        <div class="col-start-2">
-          <CardContentColumn
-            title={title}
-            link={link}
-            technologies={technologies}
-            desktopScreenshot={desktopScreenshot}
-            mobileScreenshot={mobileScreenshot}
-            number_of_projects={number_of_projects}
-            index={index}
-          >
-            <slot />
-          </CardContentColumn>
-        </div>
-
-        <div class="relative">
-          <MobileScreenshotColumn
-            title={title}
-            mobileScreenshot={mobileScreenshot}
-          />
-        </div>
-      </>
-    )
-  }
+  <div class="relative">
+    <MobileScreenshotColumn title={title} mobileScreenshot={mobileScreenshot} />
+  </div>
 </div>
