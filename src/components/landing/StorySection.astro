@@ -3,13 +3,12 @@ interface Props {
   number: string;
   title: string;
   description: string;
-  open?: boolean;
 }
 
-const { number, title, description, open = false } = Astro.props;
+const { number, title, description } = Astro.props;
 ---
 
-<details class="story-section" name="portfolio-story" open={open}>
+<details class="story-section" name="portfolio-story">
   <summary>
     <span class="story-number" aria-hidden="true">{number}</span>
     <span class="story-heading">
