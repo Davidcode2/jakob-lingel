@@ -10,7 +10,6 @@ import "../../styles/mouseTracker.css";
     number="00"
     title="Start with the web"
     description="First sites, fundamentals, and the urge to build"
-    open
   >
     <DescriptionBlock iconName="lucide:route">
       Web development provides me with a creative outlet. I built my first
@@ -186,14 +185,6 @@ import "../../styles/mouseTracker.css";
     );
 
     sections.forEach((section) => {
-      const summary = section.querySelector("summary");
-
-      summary?.addEventListener("click", (event) => {
-        if (section.open && sections.filter((item) => item.open).length === 1) {
-          event.preventDefault();
-        }
-      });
-
       section.addEventListener("toggle", () => {
         if (!section.open) return;
 
