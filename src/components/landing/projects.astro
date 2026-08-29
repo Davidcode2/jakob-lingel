@@ -1,126 +1,165 @@
 ---
 import ProjectCard from "../projectCard.astro";
 
-const projects = [
+const projectGroups = [
   {
-    title: "ProjectTitle",
-    link: "-",
-    technologies: ["-"],
-    desktopScreenshot: "-",
-    mobileScreenshot: "-",
-    description: "-",
+    title: "Platforms",
+    description: "Products with workflows, users, and operational depth",
+    projects: [
+      {
+        title: "Schreinerei-App",
+        link: "https://schreinerei-app.jakob-lingel.dev",
+        technologies: ["Rust", "Axum", "PostgreSQL", "PWA"],
+        desktopScreenshot: "/screenshots/desktop/schreinerei-app.webp",
+        mobileScreenshot: "/screenshots/mobile/schreinerei-app.webp",
+        description:
+          "operations app for small carpentry and joinery businesses",
+      },
+      {
+        title: "Teachly.store",
+        link: "https://app.teachly.jakob-lingel.dev",
+        technologies: ["React", "Typescript", "Nest.js", "Keycloak"],
+        description:
+          "platform for browsing, sharing, buying and selling educational resources",
+      },
+    ],
   },
   {
-    title: "Immoly",
-    link: "https://immo.jakob-lingel.dev",
-    technologies: ["Next.js"],
-    desktopScreenshot: "/screenshots/desktop/immoly-io.webp",
-    mobileScreenshot: "/screenshots/mobile/immoly-io.webp",
-    description: "visual mortgage calculator with multiple color schemes",
+    title: "Property technology",
+    description: "Scenario modelling for better housing decisions",
+    projects: [
+      {
+        title: "Immoly",
+        link: "https://immo.jakob-lingel.dev",
+        technologies: ["Next.js"],
+        desktopScreenshot: "/screenshots/desktop/immoly-io.webp",
+        mobileScreenshot: "/screenshots/mobile/immoly-io.webp",
+        description: "visual mortgage calculator with multiple color schemes",
+      },
+    ],
   },
   {
-    title: "Schluesselmomente",
-    link: "https://schluesselmomente-freiburg.de",
-    technologies: ["HTML", "Tailwindcss", "php"],
-    desktopScreenshot: "/screenshots/desktop/schluesselmomente-freiburg-de.webp",
-    mobileScreenshot: "/screenshots/mobile/schluesselmomente-freiburg-de.webp",
-    description: "website for local coaching business",
-  },
-  {
-    title: "Mimis-Kreativstudio",
-    link: "https://mimis-kreativstudio.de",
-    technologies: ["Astro", "Tailwindcss", "Resend"],
-    desktopScreenshot: "/screenshots/desktop/mimis-kreativstudio-de.webp",
-    mobileScreenshot: "/screenshots/mobile/mimis-kreativstudio-de.webp",
-    description: "floral design studio website with elegant styling",
-  },
-  {
-    title: "Business-Website",
-    link: "https://jakob-lingel.dev",
-    technologies: ["Astro", "React", "Three.js", "Tailwindcss"],
-    desktopScreenshot: "/screenshots/desktop/jakob-lingel-dev.webp",
-    mobileScreenshot: "/screenshots/mobile/jakob-lingel-dev.webp",
-    description: "personal portfolio website with 3D elements",
-  },
-  {
-    title: "Alemazung-Site",
-    link: "https://alemazung.de",
-    technologies: ["Next.js", "Strapi", "Tailwindcss"],
-    desktopScreenshot: "/screenshots/desktop/alemazung-de.webp",
-    mobileScreenshot: "/screenshots/mobile/alemazung-de.webp",
-    description: "multilingual website for a mayor's office",
-  },
-  {
-    title: "Blog",
-    link: "https://blog.jakob-lingel.dev",
-    technologies: ["11ty", "Tailwindcss"],
-    desktopScreenshot: "/screenshots/desktop/blog-jakob-lingel-dev.webp",
-    mobileScreenshot: "/screenshots/mobile/blog-jakob-lingel-dev.webp",
-    description: "personal blog built with 11ty",
-  },
-  {
-    title: "telemetry.jakob-lingel.dev",
-    link: "https://telemetry.jakob-lingel.dev",
-    technologies: ["Rust", "Kubernetes metrics monitor", "React"],
-    desktopScreenshot: "/screenshots/desktop/telemetry-jakob-lingel-dev.webp",
-    mobileScreenshot: "/screenshots/mobile/telemetry-jakob-lingel-dev.webp",
-    description: "kubernetes monitoring tool written in rust",
-  },
-  {
-    title: "Schreinerei-App",
-    link: "https://schreinerei-app.jakob-lingel.dev",
-    technologies: ["Rust", "Axum", "PostgreSQL", "PWA"],
-    desktopScreenshot: "/screenshots/desktop/schreinerei-app.webp",
-    mobileScreenshot: "/screenshots/mobile/schreinerei-app.webp",
-    description: "operations app for small carpentry and joinery businesses",
-  },
-  {
-    title: "Teachly.store",
-    link: "https://app.teachly.jakob-lingel.dev",
-    technologies: ["React", "Typescript", "Nest.js", "Keycloak"],
+    title: "Websites",
     description:
-      "platform for browsing, sharing, buying and selling educational resources",
+      "Astro sites and earlier web work for real people and businesses",
+    projects: [
+      {
+        title: "Business-Website",
+        link: "https://jakob-lingel.dev",
+        technologies: ["Astro", "React", "Three.js", "Tailwindcss"],
+        desktopScreenshot: "/screenshots/desktop/jakob-lingel-dev.webp",
+        mobileScreenshot: "/screenshots/mobile/jakob-lingel-dev.webp",
+        description: "personal portfolio website with 3D elements",
+      },
+      {
+        title: "Mimis-Kreativstudio",
+        link: "https://mimis-kreativstudio.de",
+        technologies: ["Astro", "Tailwindcss", "Resend"],
+        desktopScreenshot: "/screenshots/desktop/mimis-kreativstudio-de.webp",
+        mobileScreenshot: "/screenshots/mobile/mimis-kreativstudio-de.webp",
+        description: "floral design studio website with elegant styling",
+      },
+      {
+        title: "Alemazung-Site",
+        link: "https://alemazung.de",
+        technologies: ["Next.js", "Strapi", "Tailwindcss"],
+        desktopScreenshot: "/screenshots/desktop/alemazung-de.webp",
+        mobileScreenshot: "/screenshots/mobile/alemazung-de.webp",
+        description: "multilingual website for a mayor's office",
+      },
+      {
+        title: "Schluesselmomente",
+        link: "https://schluesselmomente-freiburg.de",
+        technologies: ["HTML", "Tailwindcss", "php"],
+        desktopScreenshot:
+          "/screenshots/desktop/schluesselmomente-freiburg-de.webp",
+        mobileScreenshot:
+          "/screenshots/mobile/schluesselmomente-freiburg-de.webp",
+        description: "website for local coaching business",
+      },
+      {
+        title: "Blog",
+        link: "https://blog.jakob-lingel.dev",
+        technologies: ["11ty", "Tailwindcss"],
+        desktopScreenshot: "/screenshots/desktop/blog-jakob-lingel-dev.webp",
+        mobileScreenshot: "/screenshots/mobile/blog-jakob-lingel-dev.webp",
+        description: "personal blog built with 11ty",
+      },
+    ],
+  },
+  {
+    title: "Infrastructure tooling",
+    description: "Small systems that make the platform observable",
+    projects: [
+      {
+        title: "telemetry.jakob-lingel.dev",
+        link: "https://telemetry.jakob-lingel.dev",
+        technologies: ["Rust", "Kubernetes metrics monitor", "React"],
+        desktopScreenshot:
+          "/screenshots/desktop/telemetry-jakob-lingel-dev.webp",
+        mobileScreenshot: "/screenshots/mobile/telemetry-jakob-lingel-dev.webp",
+        description: "kubernetes monitoring tool written in rust",
+      },
+    ],
   },
 ];
+
+const projectCount = projectGroups.reduce(
+  (total, group) => total + group.projects.length,
+  0,
+);
 ---
 
-<div>
+<div class="projects-shell">
   <div
-    class="grid border-t grid-cols-[50px_1fr] sm:grid-cols-[50px_1fr_50px] lg:grid-cols-[100px_1fr_100px] bg-[var(--color-background)]"
+    class="grid border-t grid-cols-[50px_minmax(0,1fr)] sm:grid-cols-[50px_minmax(0,1fr)_50px] lg:grid-cols-[100px_minmax(0,1fr)_100px] bg-[var(--color-background)]"
   >
     <div class="border-r"></div>
     <div>
-      <div class="h-12 lg:h-24 border-b"></div>
+      <header class="projects-header">
+        <h2 class="font-michroma italic uppercase">Projects</h2>
+        <p>{projectCount.toString().padStart(2, "0")} selected builds</p>
+      </header>
 
-      {/* Projects Title */}
-      <div class="lg:hidden">
-        <h2
-          class="font-michroma italic text-2xl sm:text-5xl uppercase lg:px-10 mb-8"
-        >
-          Projects
-        </h2>
-      </div>
+      {
+        projectGroups.map((group) => (
+          <section
+            class="project-group"
+            aria-labelledby={`project-group-${group.title.toLowerCase().replaceAll(" ", "-")}`}
+          >
+            <header class="project-group-header">
+              <div class="project-group-spacer" aria-hidden="true" />
+              <div class="project-group-title">
+                <h3
+                  id={`project-group-${group.title.toLowerCase().replaceAll(" ", "-")}`}
+                >
+                  {group.title}
+                </h3>
+              </div>
+              <div class="project-group-meta">
+                <span>{group.projects.length.toString().padStart(2, "0")}</span>
+                <p>{group.description}</p>
+              </div>
+            </header>
 
-      {/* Project Cards */}
-      <div class="z-30 ">
-        {
-          projects.map((project, index) => (
-            <div class="z-20  grid">
-              <ProjectCard
-                title={project.title}
-                link={project.link}
-                technologies={project.technologies}
-                desktopScreenshot={project.desktopScreenshot}
-                mobileScreenshot={project.mobileScreenshot}
-                number_of_projects={projects.length}
-                index={index}
-              >
-                {project.description}
-              </ProjectCard>
+            <div class="project-cards">
+              {group.projects.map((project, index) => (
+                <ProjectCard
+                  title={project.title}
+                  link={project.link}
+                  technologies={project.technologies}
+                  desktopScreenshot={project.desktopScreenshot}
+                  mobileScreenshot={project.mobileScreenshot}
+                  number_of_projects={group.projects.length}
+                  index={index}
+                >
+                  {project.description}
+                </ProjectCard>
+              ))}
             </div>
-          ))
-        }
-      </div>
+          </section>
+        ))
+      }
 
       <div class="h-12 lg:h-24 border-t"></div>
     </div>
@@ -128,3 +167,94 @@ const projects = [
   </div>
   <div class="w-full border-b"></div>
 </div>
+
+<style>
+  .projects-header {
+    display: flex;
+    min-height: 132px;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .projects-header h2 {
+    font-size: clamp(1.7rem, 5vw, 4rem);
+    line-height: 1;
+  }
+
+  .projects-header p {
+    color: var(--color-text-muted);
+    font-family: "Quantico", sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .project-group-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-surface-subtle);
+  }
+
+  .project-group-title {
+    padding: 1.25rem 1.5rem 0.45rem;
+  }
+
+  .project-group-title h3 {
+    color: var(--color-text-primary);
+    font-family: "Michroma", sans-serif;
+    font-size: clamp(1rem, 2.3vw, 1.55rem);
+    font-style: italic;
+    text-transform: uppercase;
+  }
+
+  .project-group-meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: 1rem;
+    padding: 0.45rem 1.5rem 1.25rem;
+    color: var(--color-text-muted);
+    font-family: "Quantico", sans-serif;
+    font-size: 0.72rem;
+  }
+
+  .project-group-meta span {
+    color: var(--color-accent);
+  }
+
+  .project-group + .project-group {
+    border-top: 1px solid var(--color-border);
+  }
+
+  @media (min-width: 1024px) {
+    .projects-header {
+      min-height: 190px;
+      padding: 3rem 2.5rem;
+    }
+
+    .project-group-header {
+      grid-template-columns: 2fr 3fr 2fr;
+      min-height: 112px;
+      background: var(--color-background);
+    }
+
+    .project-group-title {
+      display: flex;
+      align-items: center;
+      padding: 1.5rem 2.5rem;
+      border-inline: 1px solid var(--color-border);
+      background: var(--color-surface-subtle);
+    }
+
+    .project-group-meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,171 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  description: string;
+  open?: boolean;
+}
+
+const { number, title, description, open = false } = Astro.props;
+---
+
+<details class="story-section" name="portfolio-story" open={open}>
+  <summary>
+    <span class="story-number" aria-hidden="true">{number}</span>
+    <span class="story-heading">
+      <span class="story-title">{title}</span>
+      <span class="story-description">{description}</span>
+    </span>
+    <span class="story-toggle" aria-hidden="true">
+      <span></span>
+      <span></span>
+    </span>
+  </summary>
+  <div class="story-content">
+    <slot />
+  </div>
+</details>
+
+<style>
+  .story-section {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .story-section:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  summary {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    min-height: 74px;
+    cursor: pointer;
+    list-style: none;
+    background: var(--color-background);
+    transition:
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary:hover {
+    background: var(--color-surface-subtle);
+  }
+
+  summary:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -2px;
+  }
+
+  .story-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-family: "Quantico", sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+  }
+
+  .story-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+    padding: 0.9rem 1.5rem;
+  }
+
+  .story-title {
+    color: var(--color-text-primary);
+    font-family: "Michroma", sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.35rem);
+    font-style: italic;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .story-description {
+    color: var(--color-text-muted);
+    font-family: "Quantico", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+
+  .story-toggle {
+    position: relative;
+    display: grid;
+    place-items: center;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .story-toggle span {
+    position: absolute;
+    width: 16px;
+    height: 1px;
+    background: var(--color-text-primary);
+    transition: transform 180ms ease;
+  }
+
+  .story-toggle span:last-child {
+    transform: rotate(90deg);
+  }
+
+  .story-section[open] summary {
+    background: var(--color-accent-subtle);
+  }
+
+  .story-section[open] .story-number {
+    color: var(--color-accent-emphasis);
+  }
+
+  .story-section[open] .story-toggle span:last-child {
+    transform: rotate(0deg);
+  }
+
+  .story-content {
+    animation: reveal-story 220ms ease-out;
+  }
+
+  @keyframes reveal-story {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    summary {
+      grid-template-columns: 100px 1fr 100px;
+      min-height: 92px;
+    }
+
+    .story-heading {
+      padding-inline: 2.5rem;
+    }
+
+    .story-number {
+      font-size: 0.85rem;
+    }
+
+    .story-description {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    summary,
+    .story-toggle span,
+    .story-content {
+      animation: none;
+      transition: none;
+    }
+  }
+</style>
