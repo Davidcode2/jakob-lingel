@@ -1,5 +1,16 @@
 ---
 import '../styles/global.css'
+
+const siteUrl = 'https://portfolio.jakob-lingel.dev';
+const description = 'Jakob Lingel — Full-stack developer and design enthusiast. Projects in web development, design, and DevOps.';
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: 'Jakob Lingel',
+	url: siteUrl,
+	jobTitle: 'Full-stack Developer',
+	description,
+};
 ---
 
 <!doctype html>
@@ -9,9 +20,11 @@ import '../styles/global.css'
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Jakob Lingel - Fullstack Developer & Design Enthusiast. Personal portfolio showcasing projects in web development, design, and DevOps." />
+		<meta name="description" content={description} />
 		<meta name="author" content="Jakob Lingel" />
 		<meta name="theme-color" content="#0f172a" />
+		<link rel="canonical" href={siteUrl} />
+		<script type="application/ld+json" set:html={JSON.stringify(personSchema)}></script>
     <script defer src="https://analytics.jakob-lingel.dev/script.js" data-website-id="b8f269d9-9c09-4b06-8c3b-e42648f348e2"></script>
 		<title>Jakob Lingel - Fullstack Developer & Design Enthusiast</title>
 	</head>
