@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio.jakob-lingel.dev/sitemap-index.xml
