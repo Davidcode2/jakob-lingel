@@ -239,9 +239,7 @@ const projectCount = projectGroups.reduce(
     .project-group-header {
       grid-template-columns: 2fr 3fr 2fr;
       min-height: 112px;
-      background: var(--color-background);
-      position: relative;
-      z-index: 20;
+      background: transparent;
     }
 
     .project-group-title {
@@ -250,6 +248,8 @@ const projectCount = projectGroups.reduce(
       padding: 1.5rem 2.5rem;
       border-inline: 1px solid var(--color-border);
       background: var(--color-surface-subtle);
+      position: relative;
+      z-index: 20;
     }
 
     .project-group-meta {
