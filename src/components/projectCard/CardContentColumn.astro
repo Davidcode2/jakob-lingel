@@ -23,7 +23,7 @@ const {
 ---
 
 <div
-  class="lg:min-w-[450px] relative flex-1 lg:border-x flex flex-col bg-[var(--color-background)] z-10"
+  class="lg:min-w-[450px] lg:h-full relative flex-1 lg:border-x flex flex-col bg-[var(--color-background)] z-10"
 >
   <ScreenshotsForSmallScreens
     desktopScreenshot={desktopScreenshot}
@@ -31,7 +31,7 @@ const {
     title={title}
   />
 
-  <div class="grid my-auto gap-y-6">
+  <div class:list={["grid gap-y-6", index === 0 ? "lg:mt-10 lg:mb-auto" : "my-auto"]}>
     <h4 class="text-2xl lg:text-4xl px-6 lg:px-10">{title}</h4>
     <div class="px-6 lg:px-10">
       <slot />
